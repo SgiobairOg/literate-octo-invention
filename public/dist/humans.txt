@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jason P. Wilson -- Designer, Developer -- @WilsonUponSea
+
+# THANKS
+
+    HTML Boilerplate and,
+    the encouragement of my fellow developers in the 757Dev community.
+
+# TECHNOLOGY COLOPHON
+
+    CSS3 (SASS), HTML5 (PUG)
+    Apache Server Configs, Modernizr, Normalize.css

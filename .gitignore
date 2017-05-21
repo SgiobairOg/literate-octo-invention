@@ -26,3 +26,16 @@ build/Release
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
+
+# webstorm files
+.editorconfig
+.idea
+
+# graphics
+graphics
+
+# mac files
+.DS_store
+
+# sass
+.sass-cache/
