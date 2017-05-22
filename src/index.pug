@@ -229,8 +229,10 @@ html.no-js(lang="en")
             section#endcap
                 p I'm always working to enhance this page so keep an eye out for new details! My next project is some fun little personalization for you all!
 
-        script(src="js/plugins.js")
         script(src="js/main.js")
+        script.
+          window.addEventListener('scroll', debounce(checkBG, 20));
+          window.addEventListener('scroll', debounce(checkProgress, 20));
 
 
         script.

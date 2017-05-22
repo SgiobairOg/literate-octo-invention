@@ -218,8 +218,13 @@ Created by Wilsons on 5/11/17.
         <p>I'm always working to enhance this page so keep an eye out for new details! My next project is some fun little personalization for you all!</p>
       </section>
     </div>
-    <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      window.addEventListener('scroll', debounce(checkBG, 20));
+      window.addEventListener('scroll', debounce(checkProgress, 20));
+      
+      
+    </script>
     <script>
       (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;

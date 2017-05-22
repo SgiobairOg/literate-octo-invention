@@ -1,4 +1,5 @@
 const animations = document.querySelectorAll('.animated');
+const placemarks = document.querySelectorAll('[data-placemark]');
 const progressBar = document.querySelector('#progress > .bar');
 
 const debounce = (func, wait=20, immediate=true) => {
@@ -43,8 +44,7 @@ const checkProgress = (e) => {
 };
 
 const checkBG = (e) => {
-  const body = document.body,
-        bg2Target = document.querySelector('#offerings');
+  const bg2Target = document.querySelector('#offerings');
   
   const bg2Trigger = (bg2Target.offsetTop + (bg2Target.offsetHeight / 6));
   
@@ -54,7 +54,6 @@ const checkBG = (e) => {
 };
 
 const checkPlacemark = (e) => {
-  const placemarks = document.querySelectorAll('[data-placemark]');
   let current = '';
   
   placemarks.forEach( mark => {
@@ -69,10 +68,12 @@ const checkPlacemark = (e) => {
 
 const initAnimation = (e) => {
   animations.forEach(animation => animation.classList.add('inactive'));
-}
+};
 
-window.addEventListener('load', initAnimation);
-window.addEventListener('scroll', debounce(checkAnimation, 10));
-window.addEventListener('scroll', debounce(checkProgress, 20));
-window.addEventListener('scroll', debounce(checkBG, 20));
-window.addEventListener('scroll', debounce(checkPlacemark, 10));
+if(animations.length > 0) {
+  window.addEventListener('load', initAnimation);
+  window.addEventListener('scroll', debounce(checkAnimation, 10));
+}
+if(placemarks.length > 0) {
+  window.addEventListener('scroll', debounce(checkPlacemark, 10));
+}

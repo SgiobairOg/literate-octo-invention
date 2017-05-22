@@ -1,6 +1,7 @@
 'use strict';
 
 var animations = document.querySelectorAll('.animated');
+var placemarks = document.querySelectorAll('[data-placemark]');
 var progressBar = document.querySelector('#progress > .bar');
 
 var debounce = function debounce(func) {
@@ -51,8 +52,7 @@ var checkProgress = function checkProgress(e) {
 };
 
 var checkBG = function checkBG(e) {
-  var body = document.body,
-      bg2Target = document.querySelector('#offerings');
+  var bg2Target = document.querySelector('#offerings');
 
   var bg2Trigger = bg2Target.offsetTop + bg2Target.offsetHeight / 6;
 
@@ -61,7 +61,6 @@ var checkBG = function checkBG(e) {
 };
 
 var checkPlacemark = function checkPlacemark(e) {
-  var placemarks = document.querySelectorAll('[data-placemark]');
   var current = '';
 
   placemarks.forEach(function (mark) {
@@ -79,10 +78,12 @@ var initAnimation = function initAnimation(e) {
   });
 };
 
-window.addEventListener('load', initAnimation);
-window.addEventListener('scroll', debounce(checkAnimation, 10));
-window.addEventListener('scroll', debounce(checkProgress, 20));
-window.addEventListener('scroll', debounce(checkBG, 20));
-window.addEventListener('scroll', debounce(checkPlacemark, 10));
+if (animations.length > 0) {
+  window.addEventListener('load', initAnimation);
+  window.addEventListener('scroll', debounce(checkAnimation, 10));
+}
+if (placemarks.length > 0) {
+  window.addEventListener('scroll', debounce(checkPlacemark, 10));
+}
 
 //# sourceMappingURL=main.js.map

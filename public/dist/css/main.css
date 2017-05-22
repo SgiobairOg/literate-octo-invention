@@ -258,6 +258,8 @@ footer {
         transform: scale(1.2, 1.2);
         background: white;
         transition: all 200ms linear; }
+        footer a span:hover.fa-github {
+          color: black; }
         footer a span:hover.fa-twitter {
           color: #4099ff; }
         footer a span:hover.fa-linkedin {
