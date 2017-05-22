@@ -10,6 +10,14 @@ const app = express();
 const path = require('path');
 const port = process.env.PORT || '3010';
 
+function requireHTTPS(req, res, next) {
+  if (!req.secure) {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+app.all(requireHTTPS);
+
 app.use(express.static(path.join(__dirname, 'public/dist/')));
 
 app.get('/', (res, req) => {
