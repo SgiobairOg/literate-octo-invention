@@ -52,6 +52,9 @@ html, body {
 body {
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
 
+article p, article a {
+  font-family: "Playfair Display", serif; }
+
 h1, #value .content p, #endcap p {
   display: block;
   font-size: 2em;
@@ -59,7 +62,8 @@ h1, #value .content p, #endcap p {
   margin-bottom: 0.67em;
   margin-left: 0;
   margin-right: 0;
-  font-weight: bold; }
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
 
 #progress {
   position: fixed;
@@ -98,12 +102,12 @@ section, #intro, #value, #offerings, #experience, footer, #endcap, #four-oh-four
 
 #intro {
   color: white;
-  background: rgba(127, 127, 127, 0.1);
+  background: rgba(70, 70, 70, 0.4);
   background-image: radial-gradient(black 33%, transparent 33%);
   background-size: 1px 1px; }
 
 #value {
-  background: rgba(127, 127, 127, 0.1);
+  background: rgba(70, 70, 70, 0.4);
   background-image: radial-gradient(black 33%, transparent 33%);
   background-size: 1px 1px;
   min-height: 70vh; }
@@ -191,6 +195,9 @@ section, #intro, #value, #offerings, #experience, footer, #endcap, #four-oh-four
         #experience .focus-areas article h1 span, #experience .focus-areas article #value .content p span, #value .content #experience .focus-areas article p span, #experience .focus-areas article #endcap p span, #endcap #experience .focus-areas article p span {
           font-size: 1em;
           font-weight: 100; }
+      #experience .focus-areas article h2 {
+        font-size: 1em;
+        font-weight: 100; }
     @supports (display: grid) {
       #experience .focus-areas {
         display: grid;
