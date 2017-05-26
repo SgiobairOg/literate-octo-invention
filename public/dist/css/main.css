@@ -33,16 +33,7 @@ textarea {
   resize: vertical; }
 
 /* ==========================================================================
- * Browser Upgrade Prompt
- * ========================================================================== */
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ddd;
-  color: #000;
-  padding: 0.2em 0; }
-
-/* ==========================================================================
- * Author's custom styles
+ * Author's base styles
  * ========================================================================== */
 html, body {
   margin: 0;
@@ -51,6 +42,37 @@ html, body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
+
+/* ========================================================================
+ * Masthead
+ * ======================================================================== */
+.masthead {
+  width: 100vw; }
+
+/* ==========================================================================
+ * Browser Upgrade Prompt
+ * ========================================================================== */
+.browserupgrade {
+  background: #ddd;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+ * Progress Bar
+ * ========================================================================== */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  background: transparent;
+  z-index: 999999; }
+  .progress .progress_bar {
+    background: #70c2f7;
+    background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%);
+    width: 0%;
+    height: 100%; }
 
 article p, article a {
   font-family: "Playfair Display", serif; }
@@ -65,34 +87,26 @@ h1, #value .content p, #endcap p {
   font-weight: bold;
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
 
-#progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 5px;
-  background: transparent;
-  z-index: 999999; }
-  #progress .bar {
-    background: #70c2f7;
-    background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%);
-    width: 0%;
-    height: 100%; }
-
-#wrapper {
+/* ==========================================================================
+ * Page Wrapper
+ * ========================================================================== */
+.wrapper {
   width: 100vw;
   min-height: 100vh;
   background: url("../img/fairweather.png") no-repeat fixed center;
   background-size: cover; }
 
-header {
+/* ==========================================================================
+ * Browser Upgrade Prompt
+ * ========================================================================== */
+.header {
   display: flex;
   flex-flow: column nowrap;
   height: 90vh; }
-  header .cap, header .trail {
+  .header .cap, .header .trail {
     background: white;
     flex: 1 0 auto; }
-  header svg {
+  .header svg {
     flex: 0 0 auto; }
 
 section, #intro, #value, #offerings, #experience, footer, #endcap, #four-oh-four {
