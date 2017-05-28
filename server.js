@@ -6,6 +6,7 @@
  * No license is granted for this project.
  */
 const express = require('express');
+const compression = require('compression')
 const app = express();
 const path = require('path');
 const port = process.env.PORT || '3010';
@@ -18,6 +19,8 @@ function requireHTTPS(req, res, next) {
   next();
 }
 app.all(requireHTTPS);
+
+app.use(compression());
 
 app.use(express.static(path.join(__dirname, 'public/dist/')));
 
