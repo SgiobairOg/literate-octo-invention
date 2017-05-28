@@ -2,7 +2,7 @@
 
 var animations = document.querySelectorAll('.animated');
 var placemarks = document.querySelectorAll('[data-placemark]');
-var progressBar = document.querySelector('#progress > .bar');
+var progressBar = document.querySelector('.progress__bar');
 
 var debounce = function debounce(func) {
   var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
@@ -52,12 +52,12 @@ var checkProgress = function checkProgress(e) {
 };
 
 var checkBG = function checkBG(e) {
-  var bg2Target = document.querySelector('#offerings');
+  var bg2Target = document.querySelector('.offerings');
 
   var bg2Trigger = bg2Target.offsetTop + bg2Target.offsetHeight / 6;
 
-  if (window.scrollY > bg2Trigger) document.querySelector('#wrapper').classList.add('bg2');
-  if (window.scrollY <= bg2Trigger) document.querySelector('#wrapper').classList.remove('bg2');
+  if (window.scrollY > bg2Trigger) document.querySelector('.wrapper').classList.add('bg2');
+  if (window.scrollY <= bg2Trigger) document.querySelector('.wrapper').classList.remove('bg2');
 };
 
 var checkPlacemark = function checkPlacemark(e) {
