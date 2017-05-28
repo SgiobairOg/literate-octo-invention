@@ -1,6 +1,6 @@
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');
-const progressBar = document.querySelector('#progress > .bar');
+const progressBar = document.querySelector('.progress__bar');
 
 const debounce = (func, wait=20, immediate=true) => {
   let timeout;
@@ -44,12 +44,12 @@ const checkProgress = (e) => {
 };
 
 const checkBG = (e) => {
-  const bg2Target = document.querySelector('#offerings');
+  const bg2Target = document.querySelector('.offerings');
   
   const bg2Trigger = (bg2Target.offsetTop + (bg2Target.offsetHeight / 6));
   
-  if( window.scrollY > bg2Trigger ) document.querySelector('#wrapper').classList.add('bg2');
-  if( window.scrollY <= bg2Trigger ) document.querySelector('#wrapper').classList.remove('bg2');
+  if( window.scrollY > bg2Trigger ) document.querySelector('.wrapper').classList.add('bg2');
+  if( window.scrollY <= bg2Trigger ) document.querySelector('.wrapper').classList.remove('bg2');
   
 };
 
