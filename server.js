@@ -6,9 +6,10 @@
  * No license is granted for this project.
  */
 const express = require('express');
-const compression = require('compression')
+const compression = require('compression');
 const app = express();
 const path = require('path');
+const sass = require('node-sass');
 const port = process.env.PORT || '3010';
 
 function requireHTTPS(req, res, next) {
@@ -20,12 +21,20 @@ function requireHTTPS(req, res, next) {
 }
 app.all(requireHTTPS);
 
-app.use(compression());
-
-app.use(express.static(path.join(__dirname, 'public/dist/')));
+app.configure(function(){
+  app.set('views', __dirname + '/public/views');
+  app.set('view engine', 'pug');
+  app.use(compression());
+  app.use(sass.middleware({
+    src: path.join(__dirname, 'public/css/sass'),
+    dest: path.join(__dirname, 'public/css'),
+    debug: true
+  }));
+  app.use(express.static(path.join(__dirname, 'public')));
+});
 
 app.get('/', (res, req) => {
-  res.sendFile(path.join(__dirname + '/public/dist/index.html'));
+  res.render('index', {message: 'It worked'});
 });
 
 app.use( (req, res, next) => {
@@ -33,7 +42,7 @@ app.use( (req, res, next) => {
   
   // respond with html page
   if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname + '/public/dist/404.html'));
+    res.render('404');
     return;
   }
   

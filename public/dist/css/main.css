@@ -74,7 +74,7 @@ svg {
 .wrapper {
   width: 100vw;
   min-height: 100vh;
-  background: url("../img/fairweather.png") no-repeat fixed center;
+  background: url("../../img/fairweather.png") no-repeat fixed center;
   background-size: cover; }
 
 /* ==========================================================================
@@ -322,7 +322,7 @@ svg {
  * Backgrounds
  * =========================================================================== */
 .bg2 {
-  background-image: url("../img/laptop.png") !important; }
+  background-image: url("../../img/laptop.png") !important; }
 
 /* ==========================================================================
  * Helper classes
