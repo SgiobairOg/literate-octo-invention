@@ -10,6 +10,7 @@ const compression = require('compression');
 const app = express();
 const path = require('path');
 const sass = require('node-sass');
+const sassMiddleware = require('node-sass-middleware');
 const port = process.env.PORT || '3010';
 
 function requireHTTPS(req, res, next) {
@@ -21,19 +22,20 @@ function requireHTTPS(req, res, next) {
 }
 app.all(requireHTTPS);
 
-app.configure(function(){
-  app.set('views', __dirname + '/public/views');
-  app.set('view engine', 'pug');
-  app.use(compression());
-  app.use(sass.middleware({
-    src: path.join(__dirname, 'public/css/sass'),
-    dest: path.join(__dirname, 'public/css'),
-    debug: true
-  }));
-  app.use(express.static(path.join(__dirname, 'public')));
-});
+app.set('views', __dirname + '/public/views');
+app.set('view engine', 'pug');
+app.use(compression());
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public/css/sass'),
+  dest: path.join(__dirname, 'public/css'),
+  debug: true,
+  indentedSyntax: true,
+  prefix: '/css'
+}));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (res, req) => {
+
+app.get('/', (req, res) => {
   res.render('index', {message: 'It worked'});
 });
 
