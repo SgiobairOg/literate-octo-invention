@@ -33,7 +33,7 @@ svg
 .base__content
   font-size: 1em
   font-family: "Playfair Display", serif
-  line-height: 1.2em
+  line-height: 1.5em
 
 .base__title
   display: block
@@ -50,29 +50,42 @@ svg
    Masthead
    ======================================================================== */
 .masthead
+  position: fixed
+  top: 0
+  left: 0
   width: 100vw
+  z-index: 99999
 
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
 
 .browserupgrade
+  @extend .base__content
   background: #ddd
   color: #000
   padding: 0.2em 0
+
+/* ==========================================================================
+   notification message
+   ========================================================================== */
+.notifications
+  @extend .base__title
+  margin: 0
+  font-size: 1em
+  background: rgba(54,94,120,1)
+  color: white
+  padding: 0.6em 10vw
 
 /* ==========================================================================
    Progress Bar
    ========================================================================== */
 
 .progress
-  position: fixed
-  top: 0
-  left: 0
+  margin: 0
   width: 100vw
   height: 5px
   background: transparent
-  z-index: 999999
 
   &__bar
     //background: rgba(224,45,0,1)

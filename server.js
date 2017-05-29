@@ -6,10 +6,20 @@
  * No license is granted for this project.
  */
 const express = require('express');
-const compression = require('compression')
+const compression = require('compression');
 const app = express();
 const path = require('path');
+const sass = require('node-sass');
+const sassMiddleware = require('node-sass-middleware');
 const port = process.env.PORT || '3010';
+
+const indexData = {
+  notification: {
+    active: true,
+    message: "👷 I'm working on adding my CV as a page on the site. I'm about 30% done right now but will update as I go along."
+  }
+};
+
 
 function requireHTTPS(req, res, next) {
   if (!req.secure) {
@@ -20,12 +30,21 @@ function requireHTTPS(req, res, next) {
 }
 app.all(requireHTTPS);
 
+app.set('views', __dirname + '/public/views');
+app.set('view engine', 'pug');
 app.use(compression());
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public/css/sass'),
+  dest: path.join(__dirname, 'public/css'),
+  debug: true,
+  indentedSyntax: true,
+  prefix: '/css'
+}));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static(path.join(__dirname, 'public/dist/')));
 
-app.get('/', (res, req) => {
-  res.sendFile(path.join(__dirname + '/public/dist/index.html'));
+app.get('/', (req, res) => {
+  res.render('index', indexData);
 });
 
 app.use( (req, res, next) => {
@@ -33,7 +52,7 @@ app.use( (req, res, next) => {
   
   // respond with html page
   if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname + '/public/dist/404.html'));
+    res.render('404');
     return;
   }
   

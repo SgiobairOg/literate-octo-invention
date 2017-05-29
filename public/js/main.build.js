@@ -86,4 +86,4 @@ if (placemarks.length > 0) {
   window.addEventListener('scroll', debounce(checkPlacemark, 10));
 }
 
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.build.js.map
