@@ -1,8 +1,10 @@
+import throttle from './vendor/lodash/throttle';
+
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');
 const progressBar = document.querySelector('.progress__bar');
 
-const debounce = (func, wait=20, immediate=true) => {
+/*const debounce = (func, wait=20, immediate=true) => {
   let timeout;
   return (...args) => {
     let context = this;
@@ -15,7 +17,7 @@ const debounce = (func, wait=20, immediate=true) => {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
-};
+};*/
 
 const checkAnimation = (e) => {
   
@@ -72,8 +74,8 @@ const initAnimation = (e) => {
 
 if(animations.length > 0) {
   window.addEventListener('load', initAnimation);
-  window.addEventListener('scroll', debounce(checkAnimation, 10));
+  window.addEventListener('scroll', throttle(checkAnimation, 100));
 }
 if(placemarks.length > 0) {
-  window.addEventListener('scroll', debounce(checkPlacemark, 10));
+  window.addEventListener('scroll', throttle(checkPlacemark, 100));
 }

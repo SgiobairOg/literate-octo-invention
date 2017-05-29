@@ -1,30 +1,29 @@
 'use strict';
 
+var _throttle = require('./vendor/lodash/throttle');
+
+var _throttle2 = _interopRequireDefault(_throttle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var animations = document.querySelectorAll('.animated');
 var placemarks = document.querySelectorAll('[data-placemark]');
 var progressBar = document.querySelector('.progress__bar');
 
-var debounce = function debounce(func) {
-  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
-  var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-  var timeout = void 0;
-  return function () {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    var context = undefined;
-    var later = function later() {
+/*const debounce = (func, wait=20, immediate=true) => {
+  let timeout;
+  return (...args) => {
+    let context = this;
+    const later = () => {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+      if(!immediate) func.apply(context, args);
     };
-    var callNow = immediate && !timeout;
+    let callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
-};
+};*/
 
 var checkAnimation = function checkAnimation(e) {
 
@@ -80,10 +79,10 @@ var initAnimation = function initAnimation(e) {
 
 if (animations.length > 0) {
   window.addEventListener('load', initAnimation);
-  window.addEventListener('scroll', debounce(checkAnimation, 10));
+  window.addEventListener('scroll', (0, _throttle2.default)(checkAnimation, 100));
 }
 if (placemarks.length > 0) {
-  window.addEventListener('scroll', debounce(checkPlacemark, 10));
+  window.addEventListener('scroll', (0, _throttle2.default)(checkPlacemark, 100));
 }
 
 //# sourceMappingURL=main.build.js.map

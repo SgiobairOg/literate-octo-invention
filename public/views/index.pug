@@ -237,8 +237,8 @@ html.no-js(lang="en")
 
         script(src="js/main.build.js")
         script.
-          window.addEventListener('scroll', debounce(checkBG, 20));
-          window.addEventListener('scroll', debounce(checkProgress, 20));
+          window.addEventListener('scroll', throttle(checkBG, 50));
+          window.addEventListener('scroll', throttle(checkProgress, 50));
 
 
         script.
