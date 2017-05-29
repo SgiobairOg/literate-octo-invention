@@ -15,7 +15,7 @@ const progressBar = document.querySelector('.progress__bar');
     let callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) func.apply(context, args);//
   };
 };*/
 
