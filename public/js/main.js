@@ -1,4 +1,4 @@
-import throttle from './vendor/lodash/throttle';
+import throttle from './vendor/lod/throttle';
 
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');

@@ -1,6 +1,6 @@
 'use strict';
 
-var _throttle = require('./vendor/lodash/throttle');
+var _throttle = require('./vendor/lod/throttle');
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
