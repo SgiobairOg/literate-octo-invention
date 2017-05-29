@@ -105,6 +105,9 @@ svg
   background: url("../img/fairweather.png") no-repeat fixed center
   background-size: cover
 
+  @media screen and (max-width: 680px)
+    background: white
+
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
@@ -113,6 +116,9 @@ svg
   display: flex
   flex-flow: column nowrap
   height: 90vh
+
+  @media screen and (max-width: 680px)
+    background: rgba(112,194,247,1)
 
   &__fill
     background: white
@@ -333,6 +339,7 @@ svg
   &__method
     @extend .base__content
     text-decoration: none
+    line-height: 3em
     color: white
 
 .fa
@@ -442,6 +449,10 @@ svg
 
 .bg2
   background-image: url("../img/laptop.png") !important
+
+  @media screen and (max-width: 680px)
+    background-image: none !important
+
 
 
 
