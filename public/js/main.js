@@ -1,30 +1,9 @@
+
+
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');
 const progressBar = document.querySelector('.progress__bar');
 
-/* https://remysharp.com/2010/07/21/throttling-function-calls */
-const throttle = (fn, threshhold, scope) => {
-  threshhold || (threshhold = 250);
-  let last,
-      deferTimer;
-  return function () {
-    const context = scope || this;
-    
-    const now = +new Date,
-        args = arguments;
-    if (last && now < last + threshhold) {
-      // hold on to it
-      clearTimeout(deferTimer);
-      deferTimer = setTimeout(function () {
-        last = now;
-        fn.apply(context, args);
-      }, threshhold);
-    } else {
-      last = now;
-      fn.apply(context, args);
-    }
-  };
-};
 
 /*const debounce = (func, wait=20, immediate=true) => {
   let timeout;
@@ -96,8 +75,8 @@ const initAnimation = (e) => {
 
 if(animations.length > 0) {
   window.addEventListener('load', initAnimation);
-  window.addEventListener('scroll', throttle(checkAnimation, 100));
+  window.addEventListener('scroll', _.throttle(checkAnimation, 50));
 }
 if(placemarks.length > 0) {
-  window.addEventListener('scroll', throttle(checkPlacemark, 100));
+  window.addEventListener('scroll', _.throttle(checkPlacemark, 70));
 }
