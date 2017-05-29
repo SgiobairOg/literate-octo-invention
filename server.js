@@ -15,7 +15,7 @@ const port = process.env.PORT || '3010';
 
 const indexData = {
   notification: {
-    active: true,
+    active: false,
     message: "👷 I'm working on adding my CV as a page on the site. I'm about 30% done right now but will update as I go along."
   }
 };
