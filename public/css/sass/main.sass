@@ -219,10 +219,13 @@ svg
             margin-right: 0
   &--3
     @supports (grid-row-gap: 3.7vw)
-      grid-template-columns: repeat(2, 1fr)
+      grid-template-columns: repeat(1, 1fr)
       grid-column-gap: 2.7vw
       grid-row-gap: 2.7vw
-      @media screen and (min-width: 760px)
+      @media screen and (min-width: 560px)
+        grid-template-columns: repeat(2, 1fr)
+
+      @media screen and (min-width: 860px)
         grid-template-columns: repeat(3, 1fr)
 
     &__cell
@@ -230,16 +233,24 @@ svg
         margin: 2.7vw
         flex: 0 0 50%
 
-        &:nth-child(-n+2)
+        &:nth-child(-n+1)
           margin-top: 0
 
         &:nth-child(1n)
           margin-left: 0
-
-        &:nth-child(2n)
           margin-right: 0
 
-        @media screen and (min-width: 760px)
+        @media screen and (min-width: 560px)
+          &:nth-child(-n+2)
+            margin-top: 0
+
+          &:nth-child(1n)
+            margin-left: 0
+
+          &:nth-child(2n)
+            margin-right: 0
+
+        @media screen and (min-width: 860px)
           flex: 0 0 33%
 
           &:nth-child(-n+3)
@@ -385,7 +396,7 @@ svg
 
   &__content
     @extend .base__title
-    font-size: 1em
+    font-size: 1.3em
     color: white
 
 .four-oh-four

@@ -40,6 +40,7 @@ app.use(sassMiddleware({
   indentedSyntax: true,
   prefix: '/css'
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
