@@ -13,6 +13,14 @@ const sass = require('node-sass');
 const sassMiddleware = require('node-sass-middleware');
 const port = process.env.PORT || '3010';
 
+const indexData = {
+  notification: {
+    active: true,
+    message: "👷 I'm working on adding my CV as a page on the site. I'm about 30% done right now but will update as I go along."
+  }
+};
+
+
 function requireHTTPS(req, res, next) {
   if (!req.secure) {
     console.warn('Not secure. Redirecting...');
@@ -36,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-  res.render('index', {message: 'It worked'});
+  res.render('index', indexData);
 });
 
 app.use( (req, res, next) => {

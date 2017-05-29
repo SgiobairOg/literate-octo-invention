@@ -24,14 +24,9 @@ html.no-js(lang="en")
         )
 
         link(
+            rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Playfair+Display"
-            rel="stylesheet"
         )
-
-        //link(
-            rel="stylesheet"
-            href="css/normalize.css"
-        //)
 
         link(
             rel="stylesheet"
@@ -43,16 +38,16 @@ html.no-js(lang="en")
             href="css/font-awesome.min.css"
         )
 
-
-
     body
         .masthead
             <!--[if lt IE 8]>
                 p.browserupgrade You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
             <![endif]-->
-            p= message
+            if notification.active
+                p.notifications= notification.message
             .progress
                 .progress__bar.t1
+
         .wrapper.home
             <!-- Header Section -->
             header.header
@@ -238,7 +233,7 @@ html.no-js(lang="en")
                 p.endcap__content I'm always working to enhance this page so keep an eye out for new details! My next project is some fun little personalization for you all!
                 p.endcap__content For the curious and the details oriented, this page is written in Pug and ES6.
 
-        script(src="js/main.js")
+        script(src="js/main.build.js")
         script.
           window.addEventListener('scroll', debounce(checkBG, 20));
           window.addEventListener('scroll', debounce(checkProgress, 20));
