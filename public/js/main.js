@@ -79,7 +79,7 @@ const update = () => {
   checkBG( currScrollY );
 };
 
-const initAnimation = () => {
+const initScrollResponders = () => {
   _.forEach(animations, animation => {
     animation.classList.add('inactive');
     animation.positionData = {
@@ -115,7 +115,7 @@ const preloadImages = (array) => {
   });
 };
 
-preloadImages(["../img/laptop.png", "../img/laptop@2x.png"]);
+preloadImages(["../img/laptop.png"]);
 
-window.addEventListener('load', initAnimation);
+window.addEventListener('load', initScrollResponders);
 window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));

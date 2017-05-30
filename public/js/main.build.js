@@ -79,7 +79,7 @@ var update = function update() {
   checkBG(currScrollY);
 };
 
-var initAnimation = function initAnimation() {
+var initScrollResponders = function initScrollResponders() {
   _.forEach(animations, function (animation) {
     animation.classList.add('inactive');
     animation.positionData = {
@@ -115,9 +115,9 @@ var preloadImages = function preloadImages(array) {
   });
 };
 
-preloadImages(["../img/laptop.png", "../img/laptop@2x.png"]);
+preloadImages(["../img/laptop.png"]);
 
-window.addEventListener('load', initAnimation);
+window.addEventListener('load', initScrollResponders);
 window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));
 
 //# sourceMappingURL=main.build.js.map
