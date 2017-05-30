@@ -3,27 +3,11 @@
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');
 const progressBar = document.querySelector('.progress__bar');
-let scrollSpeed = 300;
-
-
-/*const debounce = (func, wait=20, immediate=true) => {
-  let timeout;
-  return (...args) => {
-    let context = this;
-    const later = () => {
-      timeout = null
-      if(!immediate) func.apply(context, args);
-    };
-    let callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);//
-  };
-};*/
+const scrollSpeed = 160;
 
 const checkAnimation = (e) => {
   
-  animations.forEach( animation => {
+  _.forEach(animations, animation => {
     const animationTrigger = (window.scrollY + window.innerHeight) - animation.offsetHeight;
   
     const isShowing = animationTrigger > animation.offsetTop;
@@ -62,7 +46,7 @@ const checkBG = (e) => {
 const checkPlacemark = (e) => {
   let current = '';
   
-  placemarks.forEach( mark => {
+  _.forEach(placemarks, mark => {
     if( mark.offsetTop < ( window.scrollY + ( 4 * window.innerHeight/5 ))) {
       current = mark.dataset.placemark;
       
@@ -73,11 +57,10 @@ const checkPlacemark = (e) => {
 };
 
 const initAnimation = (e) => {
-  animations.forEach(animation => animation.classList.add('inactive'));
+  _.forEach(animations, animation => animation.classList.add('inactive'));
 };
 
 const checkScroll = () => {
-  console.log('Scrolling');
   if (animations.length > 0) {
     checkAnimation();
   }
