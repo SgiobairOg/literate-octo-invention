@@ -3,28 +3,22 @@
 var animations = document.querySelectorAll('.animated');
 var placemarks = document.querySelectorAll('[data-placemark]');
 var progressBar = document.querySelector('.progress__bar');
+var scrollSpeed = 300;
 
-var debounce = function debounce(func) {
-  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
-  var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-  var timeout = void 0;
-  return function () {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    var context = undefined;
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
+/*const debounce = (func, wait=20, immediate=true) => {
+  let timeout;
+  return (...args) => {
+    let context = this;
+    const later = () => {
+      timeout = null
+      if(!immediate) func.apply(context, args);
     };
-    var callNow = immediate && !timeout;
+    let callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) func.apply(context, args);//
   };
-};
+};*/
 
 var checkAnimation = function checkAnimation(e) {
 
@@ -52,12 +46,15 @@ var checkProgress = function checkProgress(e) {
 };
 
 var checkBG = function checkBG(e) {
+
   var bg2Target = document.querySelector('.offerings');
 
-  var bg2Trigger = bg2Target.offsetTop + bg2Target.offsetHeight / 6;
+  if (bg2Target != null) {
+    var bg2Trigger = bg2Target.offsetTop + bg2Target.offsetHeight / 6;
 
-  if (window.scrollY > bg2Trigger) document.querySelector('.wrapper').classList.add('bg2');
-  if (window.scrollY <= bg2Trigger) document.querySelector('.wrapper').classList.remove('bg2');
+    if (window.scrollY > bg2Trigger) document.querySelector('.wrapper').classList.add('bg2');
+    if (window.scrollY <= bg2Trigger) document.querySelector('.wrapper').classList.remove('bg2');
+  }
 };
 
 var checkPlacemark = function checkPlacemark(e) {
@@ -78,12 +75,21 @@ var initAnimation = function initAnimation(e) {
   });
 };
 
-if (animations.length > 0) {
-  window.addEventListener('load', initAnimation);
-  window.addEventListener('scroll', debounce(checkAnimation, 10));
-}
-if (placemarks.length > 0) {
-  window.addEventListener('scroll', debounce(checkPlacemark, 10));
-}
+var checkScroll = function checkScroll() {
+  console.log('Scrolling');
+  if (animations.length > 0) {
+    checkAnimation();
+  }
+  if (placemarks.length > 0) {
+    checkPlacemark();
+  }
+  if (progressBar != null) {
+    checkProgress();
+  }
+  checkBG();
+};
+
+window.addEventListener('load', initAnimation);
+window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));
 
 //# sourceMappingURL=main.build.js.map

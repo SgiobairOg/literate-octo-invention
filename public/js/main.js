@@ -1,21 +1,25 @@
+
+
 const animations = document.querySelectorAll('.animated');
 const placemarks = document.querySelectorAll('[data-placemark]');
 const progressBar = document.querySelector('.progress__bar');
+let scrollSpeed = 300;
 
-const debounce = (func, wait=20, immediate=true) => {
+
+/*const debounce = (func, wait=20, immediate=true) => {
   let timeout;
   return (...args) => {
     let context = this;
     const later = () => {
-      timeout = null;
+      timeout = null
       if(!immediate) func.apply(context, args);
     };
     let callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) func.apply(context, args);//
   };
-};
+};*/
 
 const checkAnimation = (e) => {
   
@@ -44,13 +48,15 @@ const checkProgress = (e) => {
 };
 
 const checkBG = (e) => {
+  
   const bg2Target = document.querySelector('.offerings');
   
-  const bg2Trigger = (bg2Target.offsetTop + (bg2Target.offsetHeight / 6));
+  if(bg2Target != null) {
+    const bg2Trigger = (bg2Target.offsetTop + (bg2Target.offsetHeight / 6));
   
-  if( window.scrollY > bg2Trigger ) document.querySelector('.wrapper').classList.add('bg2');
-  if( window.scrollY <= bg2Trigger ) document.querySelector('.wrapper').classList.remove('bg2');
-  
+    if (window.scrollY > bg2Trigger) document.querySelector('.wrapper').classList.add('bg2');
+    if (window.scrollY <= bg2Trigger) document.querySelector('.wrapper').classList.remove('bg2');
+  }
 };
 
 const checkPlacemark = (e) => {
@@ -70,10 +76,20 @@ const initAnimation = (e) => {
   animations.forEach(animation => animation.classList.add('inactive'));
 };
 
-if(animations.length > 0) {
-  window.addEventListener('load', initAnimation);
-  window.addEventListener('scroll', debounce(checkAnimation, 10));
-}
-if(placemarks.length > 0) {
-  window.addEventListener('scroll', debounce(checkPlacemark, 10));
-}
+const checkScroll = () => {
+  console.log('Scrolling');
+  if (animations.length > 0) {
+    checkAnimation();
+  }
+  if (placemarks.length > 0) {
+    checkPlacemark();
+  }
+  if (progressBar != null) {
+    checkProgress();
+  }
+  checkBG();
+};
+
+
+window.addEventListener('load', initAnimation);
+window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));
