@@ -3,40 +3,7 @@
 
 doctype html
 html.no-js(lang="en")
-    head
-        meta(charset="utf-8")
-        meta(http-equiv="x-ua-compatible", content="ie=edge")
-
-        title= "Versed Dev Unicorn - Jason Wilson"
-
-        meta(
-            name="description"
-            content="Design, development, UX, project management, and more. I'm Jason Wilson, at your service."
-        )
-        meta(
-            name="viewport"
-            content="width=device-width, initial-scale=1"
-        )
-
-        link(
-            rel="apple-touch-icon"
-            href="apple-touch-icon.png"
-        )
-
-        link(
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Playfair+Display"
-        )
-
-        link(
-            rel="stylesheet"
-            href="css/main.css"
-        )
-
-        link(
-            rel="stylesheet"
-            href="css/font-awesome.min.css"
-        )
+    include partials/head.pug
 
     body
         .masthead
@@ -78,7 +45,10 @@ html.no-js(lang="en")
                 p.offerings__content
                   | I have spent my career investing in skillsets to meet project and employer
                   | needs as they arise. I love having the flexibility to jump in where needed
-                  | to bring a project along.
+                  | to bring a project along. If you'd like, please
+                  | <a class="offerings__link" href="files/Curriculum_Vitae_June_2017.pdf"
+                  | download="#{moment(Date.now()).format('YYYY-MM')}_JasonWilson_CV" >
+                  |  download my CV</a><span class="fa .offerings__fa fa-file-pdf-o offerings__fa"></span>.
 
                 .columns.columns--2
                     article.focus-area.columns--2__cell
@@ -134,10 +104,9 @@ html.no-js(lang="en")
 
             section.section.value
                 aside.value__aside
-                    h1.value__aside__title.animated.slide-left.fade-in.t1 Lately, I've been playing with <a href="http://mavo.io">MAVO</a>, a
-                        |  recently released framework for writing WebApps in HTML.
+                    h1.value__aside__title.animated.slide-left.fade-in.t1 Popular Mechanics inspired me to make this Pug, SASS, and JavaScript implementation of their <a href="http://www.popularmechanics.com/science/math/a26818/riddle-of-the-week-30-seven-candles/" target="_blank">candle riddle</a>.
                 .value__content
-                    <p data-height="342" data-theme-id="dark" data-slug-hash="XRPExZ" data-default-tab="result" data-user="SgiobairOg" data-embed-version="2" data-pen-title="MAVO Playground" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/SgiobairOg/pen/XRPExZ/">MAVO Playground</a> by Jason Wilson (<a href="http://codepen.io/SgiobairOg">@SgiobairOg</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+                    <p data-height="530" data-theme-id="dark" data-slug-hash="rweGQz" data-default-tab="result" data-user="SgiobairOg" data-embed-version="2" data-pen-title="PM Seven Candles" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/SgiobairOg/pen/rweGQz/">PM Seven Candles</a> by Jason Wilson (<a href="https://codepen.io/SgiobairOg">@SgiobairOg</a>) on <a href="https://codepen.io">CodePen</a>.</p>
                     <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
             <!-- End Value -->
@@ -222,13 +191,13 @@ html.no-js(lang="en")
                 h1.footer__title Can I do great things for you? Get in touch!
                 p.footer__content Jason Wilson: Jason@Wilsons.io
                 p.footer__content <a class="footer__method" href="https://github.com/sgiobairog" target="_blank">
-                    | <span class="fa fa-github"></span></a><a class="footer__method" href="https://codepen.io/sgiobairog" target="_blank">
-                    | <span class="fa fa-codepen"></span></a><a class="footer__method" href="https://twitter.com/WilsonUponSea" target="_blank">
-                    | <span class="fa fa-twitter"></span></a> <a class="footer__method" href="https://www.linkedin.com/in/jasonpaulwilson/" target="_blank">
-                    | <span class="fa fa-linkedin"></span></a> <a class="footer__method" href="https://www.facebook.com/wilsons.upon.web/" target="_blank">
-                    | <span class="fa fa-facebook"></span></a> <a class="footer__method" href="https://medium.com/@Wilsons.io" target="_blank">
-                    | <span class="fa fa-medium"></span></a> <a class="footer__method" href="https://www.behance.net/JasonPaulWilson" target="_blank">
-                    | <span class="fa fa-behance"></span></a>
+                    | <span class="fa footer__fa fa-github"></span></a><a class="footer__method" href="https://codepen.io/sgiobairog" target="_blank">
+                    | <span class="fa footer__fa fa-codepen"></span></a><a class="footer__method" href="https://twitter.com/WilsonUponSea" target="_blank">
+                    | <span class="fa footer__fa fa-twitter"></span></a> <a class="footer__method" href="https://www.linkedin.com/in/jasonpaulwilson/" target="_blank">
+                    | <span class="fa footer__fa fa-linkedin"></span></a> <a class="footer__method" href="https://www.facebook.com/wilsons.upon.web/" target="_blank">
+                    | <span class="fa footer__fa fa-facebook"></span></a> <a class="footer__method" href="https://medium.com/@Wilsons.io" target="_blank">
+                    | <span class="fa footer__fa fa-medium"></span></a> <a class="footer__method" href="https://www.behance.net/JasonPaulWilson" target="_blank">
+                    | <span class="fa footer__fa fa-behance"></span></a>
                 a.button.t2(href="mailto:jason@wilsons.io") Email me
 
             section.section.endcap

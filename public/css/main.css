@@ -1,0 +1,408 @@
+@charset "UTF-8";
+/* Jason Wilson @WilsonUponSea */
+/* ==========================================================================
+   Base styles
+   @mixin ========================================================================= */
+html {
+  font-size: calc(18px + (30 - 18) * (100vw - 450)/(1366 - 450)); }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+img,
+svg {
+  vertical-align: middle; }
+
+.base__content, .browserupgrade, .offerings__content, .offerings__link, .focus-area__content, .footer__method, .four-oh-four__content {
+  font-size: 1em;
+  font-family: "Playfair Display", serif;
+  line-height: 1.5em; }
+
+.base__link:link, .offerings__link:link, .focus-area__link:link {
+  color: #70c2f7;
+  text-decoration: none; }
+  .base__link:link:visited, .offerings__link:link:visited, .focus-area__link:link:visited {
+    color: rgba(0, 0, 0, 0.6); }
+  .base__link:link:hover, .offerings__link:link:hover, .focus-area__link:link:hover {
+    color: rgba(112, 194, 247, 0.8);
+    text-decoration: underline; }
+  .base__link:link:active, .offerings__link:link:active, .focus-area__link:link:active {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: underline; }
+
+.base__title, .notifications, .intro__title, .offerings__title, .focus-area__title, .focus-area__subtitle, .focus-area__link, .focus-area__label, .value__aside__title, .experience__title, .experience__subtitle, .footer__title, .footer__content, .button, .endcap__content, .four-oh-four__title {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
+
+/* ========================================================================
+   Masthead
+   @mixin ======================================================================= */
+.masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 99999; }
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   @mixin ========================================================================= */
+.browserupgrade {
+  background: #ddd;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   notification message
+   @mixin ========================================================================= */
+.notifications {
+  margin: 0;
+  font-size: 1em;
+  background: #365e78;
+  color: white;
+  padding: 0.6em 10vw; }
+
+/* ==========================================================================
+   Progress Bar
+   @mixin ========================================================================= */
+.progress {
+  margin: 0;
+  width: 100vw;
+  height: 5px;
+  background: transparent; }
+  .progress__bar {
+    background: #70c2f7;
+    background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%);
+    width: 0%;
+    height: 100%; }
+
+/* ==========================================================================
+   Page Wrapper
+   @mixin ========================================================================= */
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  background: url("../img/fairweather.png") no-repeat fixed center;
+  background-size: cover; }
+  @media screen and (max-width: 680px) {
+    .wrapper {
+      background: white; } }
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   @mixin ========================================================================= */
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 90vh; }
+  @media screen and (max-width: 680px) {
+    .header {
+      background: #70c2f7; } }
+  .header__fill {
+    background: white;
+    flex: 1 0 auto; }
+
+.knockoutTitle {
+  flex: 0 0 auto; }
+
+/* ==========================================================================
+   Basic Section Styles
+   @mixin ========================================================================= */
+.section, .tween {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9.4vw; }
+
+/* ==========================================================================
+   Intro Section
+   @mixin ========================================================================= */
+.intro {
+  color: white;
+  background: rgba(70, 70, 70, 0.4);
+  background-image: radial-gradient(black 33%, transparent 33%);
+  background-size: 1px 1px; }
+
+.offerings {
+  background: white; }
+  .offerings__content {
+    font-style: italic; }
+  .offerings__fa {
+    margin: 0 .5em;
+    margin-right: 0;
+    padding: .1em; }
+
+.focus-area__title {
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.7); }
+
+.focus-area__subtitle {
+  font-size: 1em;
+  font-weight: 300; }
+
+.focus-area__content {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.5); }
+
+.focus-area__link {
+  font-size: .9em; }
+
+.focus-area__label {
+  font-size: .9em;
+  font-weight: 100;
+  font-style: italic; }
+
+.columns {
+  width: 100%; }
+  @supports (grid-row-gap: 4.7vw) {
+    .columns {
+      display: grid; } }
+  @supports not (grid-row-gap: 4.7vw) {
+    .columns {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: stretch; } }
+  @supports (grid-row-gap: 4.7vw) {
+    .columns--2 {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 4.7vw;
+      grid-row-gap: 4.7vw; }
+      @media screen and (min-width: 760px) {
+        .columns--2 {
+          grid-template-columns: repeat(2, 1fr); } } }
+  @supports not (grid-row-gap: 4.7vw) {
+    .columns--2__cell {
+      margin: 4.7vw;
+      flex: 0 0 100%; }
+      @media screen and (min-width: 760px) {
+        .columns--2__cell {
+          flex: 0 0 50%; }
+          .columns--2__cell:nth-child(-n+2) {
+            margin-top: 0; }
+          .columns--2__cell:nth-child(1n) {
+            margin-left: 0; }
+          .columns--2__cell:nth-child(2n) {
+            margin-right: 0; } } }
+  @supports (grid-row-gap: 3.7vw) {
+    .columns--3 {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 2.7vw;
+      grid-row-gap: 2.7vw; }
+      @media screen and (min-width: 560px) {
+        .columns--3 {
+          grid-template-columns: repeat(2, 1fr); } }
+      @media screen and (min-width: 860px) {
+        .columns--3 {
+          grid-template-columns: repeat(3, 1fr); } } }
+  @supports not (grid-row-gap: 4.7vw) {
+    .columns--3__cell {
+      margin: 2.7vw;
+      flex: 0 0 50%; }
+      .columns--3__cell:nth-child(-n+1) {
+        margin-top: 0; }
+      .columns--3__cell:nth-child(1n) {
+        margin-left: 0;
+        margin-right: 0; }
+      @media screen and (min-width: 560px) {
+        .columns--3__cell:nth-child(-n+2) {
+          margin-top: 0; }
+        .columns--3__cell:nth-child(1n) {
+          margin-left: 0; }
+        .columns--3__cell:nth-child(2n) {
+          margin-right: 0; } }
+      @media screen and (min-width: 860px) {
+        .columns--3__cell {
+          flex: 0 0 33%; }
+          .columns--3__cell:nth-child(-n+3) {
+            margin-top: 0; }
+          .columns--3__cell:nth-child(1n) {
+            margin-left: 0; }
+          .columns--3__cell:nth-child(3n) {
+            margin-right: 0; } } }
+
+.value {
+  background: rgba(70, 70, 70, 0.4);
+  background-image: radial-gradient(black 33%, transparent 33%);
+  background-size: 1px 1px;
+  min-height: 70vh; }
+  .value__aside {
+    color: white;
+    flex: 1 0 100%; }
+    @supports not (grid-row-gap: 4.7vw) {
+      @media screen and (min-width: 1190px) {
+        .value__aside {
+          flex: 1 0 50%;
+          margin-right: 4.7vw; } } }
+  .value__content {
+    color: white; }
+    @supports not (grid-row-gap: 4.7vw) {
+      .value__content {
+        flex: 1 0 100%; }
+        @media screen and (min-width: 1190px) {
+          .value__content {
+            flex: 1 0 50%; } } }
+  @supports (grid-row-gap: 4.7vw) {
+    .value {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 4.7vw;
+      grid-row-gap: 4.7vw; }
+      @media screen and (min-width: 1190px) {
+        .value {
+          grid-template-columns: repeat(2, 1fr); } } }
+  @supports not (grid-row-gap: 4.7vw) {
+    .value {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center; } }
+
+.experience {
+  background: white; }
+  .experience__subtitle {
+    font-size: 1.2em; }
+
+.footer {
+  color: white;
+  background: rgba(27, 27, 27, 0.5);
+  background-image: radial-gradient(black 33%, transparent 33%);
+  background-size: 1px 1px; }
+  .footer__content {
+    font-size: 1.7em;
+    font-weight: 200; }
+  .footer__method {
+    text-decoration: none;
+    line-height: 3em;
+    color: white; }
+  .footer__fa {
+    padding: .5em;
+    font-size: 2.5em;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: .1em;
+    min-width: 2em;
+    line-height: 3em;
+    text-align: center;
+    margin: 0 .5em;
+    background: rgba(255, 255, 255, 0); }
+
+.fa:hover {
+  transform: scale(1.2, 1.2);
+  background: white;
+  transition: all 200ms linear; }
+  .fa:hover.fa-github {
+    color: black; }
+  .fa:hover.fa-codepen {
+    color: black; }
+  .fa:hover.fa-twitter {
+    color: #4099ff; }
+  .fa:hover.fa-linkedin {
+    color: #0077b5; }
+  .fa:hover.fa-facebook {
+    color: #3b5998; }
+  .fa:hover.fa-medium {
+    color: #02b875; }
+  .fa:hover.fa-behance {
+    color: #2b2b2b; }
+
+.button {
+  display: block;
+  background: #70c2f7;
+  background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%);
+  color: white;
+  font-size: 1.1em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  .button:hover {
+    transform: scale(1, 1.1); }
+
+.endcap {
+  padding-top: 2vw;
+  padding-bottom: 4vw;
+  margin: 0;
+  background: #70c2f7;
+  background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%); }
+  .endcap__content {
+    font-size: 1.3em;
+    color: white; }
+
+.four-oh-four {
+  background: white; }
+
+/* ==========================================================================
+  Animations
+  @mixin ========================================================================== */
+.animated.slide-left {
+  transform: translateX(0); }
+  .animated.slide-left.inactive {
+    transform: translateX(-30%); }
+
+.animated.scale {
+  transform: scale(1, 1); }
+  .animated.scale.inactive {
+    transform: scale(0, 0); }
+
+.animated.fade-in {
+  opacity: 1; }
+  .animated.fade-in.inactive {
+    opacity: 0; }
+
+.t1 {
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+.t2 {
+  transition: all 300ms cubic-bezier(0.395, 0.89, 0.68, 1.65); }
+
+/* ==========================================================================
+  Backgrounds
+  @mixin ========================================================================== */
+.bg2 {
+  background-image: url("../img/laptop.png") !important; }
+  @media screen and (max-width: 680px) {
+    .bg2 {
+      background-image: none !important; } }
+
+/* ==========================================================================
+   Helper classes
+   @mixin ========================================================================= */
+.hidden {
+  display: none !important; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+  .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto; }
+
+.invisible {
+  visibility: hidden; }

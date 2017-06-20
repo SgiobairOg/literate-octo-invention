@@ -20,6 +20,7 @@ const indexData = {
   }
 };
 
+app.locals.moment = require('moment');
 
 function requireHTTPS(req, res, next) {
   if (!req.secure) {
