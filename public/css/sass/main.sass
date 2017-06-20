@@ -35,6 +35,22 @@ svg
   font-family: "Playfair Display", serif
   line-height: 1.5em
 
+.base__link
+  &:link
+    color: rgba(112,194,247,1)
+    text-decoration: none
+
+    &:visited
+      color: rgba(0,0,0,.6)
+
+    &:hover
+      color: rgba(112,194,247,.8)
+      text-decoration: underline
+
+    &:active
+      color: rgba(0,0,0,.8)
+      text-decoration: underline
+
 .base__title
   display: block
   font-size: 2em
@@ -159,6 +175,15 @@ svg
     @extend .base__content
     font-style: italic
 
+  &__link
+    @extend .base__content
+    @extend .base__link
+
+  &__fa
+    margin: 0 .5em
+    margin-right: 0
+    padding: .1em
+
 .focus-area
   // Typography
   &__title
@@ -178,6 +203,7 @@ svg
 
   &__link
     @extend .base__title
+    @extend .base__link
     font-size: .9em
 
   &__label
@@ -342,17 +368,20 @@ svg
     line-height: 3em
     color: white
 
+  &__fa
+    padding: .5em
+    font-size: 2.5em
+    display: inline-block
+    border: 1px solid white
+    border-radius: .1em
+    min-width: 2em
+    line-height: 3em
+    text-align: center
+    margin: 0 .5em
+    background: rgba(255,255,255,0)
+
 .fa
-  padding: .5em
-  font-size: 2.5em
-  display: inline-block
-  border: 1px solid white
-  border-radius: .1em
-  min-width: 2em
-  line-height: 3em
-  text-align: center
-  margin: 0 .5em
-  background: rgba(255,255,255,0)
+
 
   &:hover
     transform: scale(1.2,1.2)
