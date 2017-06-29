@@ -159,7 +159,7 @@ svg
 .intro
   color: white
   background: rgba(70, 70, 70, 0.4)
-  background-image: radial-gradient(black 33%, transparent 33%)
+  //background-image: radial-gradient(black 33%, transparent 33%)
   background-size: 1px 1px
 
   &__title
@@ -297,11 +297,15 @@ svg
 
 .value
   background: rgba(70, 70, 70, 0.4)
-  background-image: radial-gradient(black 33%, transparent 33%)
+  //background-image: radial-gradient(black 33%, transparent 33%)
   background-size: 1px 1px
   min-height: 70vh
+  color: white
 
-  &__aside
+  &__title
+    @extend .base__title
+
+  /*&__aside
     color: white
     flex: 1 0 100%
 
@@ -310,10 +314,9 @@ svg
         flex: 1 0 50%
         margin-right: 4.7vw
 
-    &__title
-      @extend .base__title
 
-  &__content
+
+  /*&__content
     color: white
 
     @supports not (grid-row-gap: 4.7vw)
@@ -321,7 +324,7 @@ svg
       @media screen and (min-width: 1190px)
         flex: 1 0 50%
 
-  @supports (grid-row-gap: 4.7vw)
+  /*@supports (grid-row-gap: 4.7vw)
     display: grid
     grid-template-columns: repeat(1, 1fr)
     grid-column-gap: 4.7vw
@@ -329,13 +332,11 @@ svg
     @media screen and (min-width: 1190px)
       grid-template-columns: repeat(2, 1fr)
 
-  @supports not (grid-row-gap: 4.7vw)
+  /*@supports not (grid-row-gap: 4.7vw)
     display: flex
     flex-flow: row wrap
     justify-content: center
     align-items: center
-
-
 
 
 .experience
@@ -351,7 +352,7 @@ svg
 .footer
   color: white
   background: rgba(27, 27, 27, 0.5)
-  background-image: radial-gradient(black 33%, transparent 33%)
+  //background-image: radial-gradient(black 33%, transparent 33%)
   background-size: 1px 1px
 
   &__title
