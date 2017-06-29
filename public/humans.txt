@@ -10,6 +10,8 @@
     HTML Boilerplate and,
     the encouragement of my fellow developers in the 757Dev community.
 
+    Big thanks to Nils Solanki who helped me identify a nagging Firefox performance issue.
+
 # TECHNOLOGY COLOPHON
 
     CSS3 (SASS), HTML5 (PUG)
