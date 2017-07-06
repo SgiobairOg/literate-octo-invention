@@ -39,7 +39,7 @@ svg {
     color: rgba(0, 0, 0, 0.8);
     text-decoration: underline; }
 
-.base__title, .notifications, .intro__title, .offerings__title, .focus-area__title, .focus-area__subtitle, .focus-area__link, .focus-area__label, .value__aside__title, .experience__title, .experience__subtitle, .footer__title, .footer__content, .button, .endcap__content, .four-oh-four__title {
+.base__title, .notifications, .intro__title, .offerings__title, .focus-area__title, .focus-area__subtitle, .focus-area__link, .focus-area__label, .value__title, .experience__title, .experience__subtitle, .footer__title, .footer__content, .button, .endcap__content, .four-oh-four__title {
   display: block;
   font-size: 2em;
   margin-top: 0.67em;
@@ -97,7 +97,7 @@ svg {
 .wrapper {
   width: 100vw;
   min-height: 100vh;
-  background: url("../img/fairweather.png") no-repeat fixed center;
+  background: url("../img/fairweather.jpg") no-repeat fixed center;
   background-size: cover; }
   @media screen and (max-width: 680px) {
     .wrapper {
@@ -134,7 +134,6 @@ svg {
 .intro {
   color: white;
   background: rgba(70, 70, 70, 0.4);
-  background-image: radial-gradient(black 33%, transparent 33%);
   background-size: 1px 1px; }
 
 .offerings {
@@ -237,40 +236,36 @@ svg {
 
 .value {
   background: rgba(70, 70, 70, 0.4);
-  background-image: radial-gradient(black 33%, transparent 33%);
   background-size: 1px 1px;
-  min-height: 70vh; }
-  .value__aside {
-    color: white;
-    flex: 1 0 100%; }
-    @supports not (grid-row-gap: 4.7vw) {
-      @media screen and (min-width: 1190px) {
-        .value__aside {
-          flex: 1 0 50%;
-          margin-right: 4.7vw; } } }
-  .value__content {
-    color: white; }
-    @supports not (grid-row-gap: 4.7vw) {
-      .value__content {
-        flex: 1 0 100%; }
-        @media screen and (min-width: 1190px) {
-          .value__content {
-            flex: 1 0 50%; } } }
-  @supports (grid-row-gap: 4.7vw) {
-    .value {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-column-gap: 4.7vw;
-      grid-row-gap: 4.7vw; }
-      @media screen and (min-width: 1190px) {
-        .value {
-          grid-template-columns: repeat(2, 1fr); } } }
-  @supports not (grid-row-gap: 4.7vw) {
-    .value {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-items: center; } }
+  min-height: 70vh;
+  color: white;
+  /*&__aside
+    color: white
+    flex: 1 0 100%
+
+    @supports not (grid-row-gap: 4.7vw)
+      @media screen and (min-width: 1190px)
+        flex: 1 0 50%
+        margin-right: 4.7vw */
+  /*&__content
+    color: white
+
+    @supports not (grid-row-gap: 4.7vw)
+      flex: 1 0 100%
+      @media screen and (min-width: 1190px)
+        flex: 1 0 50% */
+  /*@supports (grid-row-gap: 4.7vw)
+    display: grid
+    grid-template-columns: repeat(1, 1fr)
+    grid-column-gap: 4.7vw
+    grid-row-gap: 4.7vw
+    @media screen and (min-width: 1190px)
+      grid-template-columns: repeat(2, 1fr) */
+  /*@supports not (grid-row-gap: 4.7vw)
+    display: flex
+    flex-flow: row wrap
+    justify-content: center
+    align-items: center */ }
 
 .experience {
   background: white; }
@@ -280,7 +275,6 @@ svg {
 .footer {
   color: white;
   background: rgba(27, 27, 27, 0.5);
-  background-image: radial-gradient(black 33%, transparent 33%);
   background-size: 1px 1px; }
   .footer__content {
     font-size: 1.7em;
@@ -376,7 +370,7 @@ svg {
   Backgrounds
   @mixin ========================================================================== */
 .bg2 {
-  background-image: url("../img/laptop.png") !important; }
+  background-image: url("../img/laptop.jpg") !important; }
   @media screen and (max-width: 680px) {
     .bg2 {
       background-image: none !important; } }
