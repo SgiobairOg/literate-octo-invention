@@ -135,16 +135,16 @@ body {
   position: fixed;
   z-index: -99; }
   .page__backdrop--bg1 {
-    background: url("../img/moi.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/moi.jpg") no-repeat center center;
     background-size: cover; }
   .page__backdrop--bg2 {
-    background: url("../img/fairweather.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/fairweather.jpg") no-repeat center center;
     background-size: cover; }
   .page__backdrop--bg3 {
-    background: url("../img/candles.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/candles.jpg") no-repeat center center;
     background-size: cover; }
   .page__backdrop--bg4 {
-    background: url("../img/desk.jpg") no-repeat center center;
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/desk.jpg") no-repeat center center;
     background-size: cover; }
 
 /* ==========================================================================
