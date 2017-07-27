@@ -38,17 +38,17 @@ html.no-js(lang="en")
             <!-- End Header Section -->
 
             <!-- Intro Section -->
-            section.section.intro
+            section.section.intro(data-placemark="#intro", id="intro")
                 h1.content--nomargin.content__title.content--white.animated.slide--left.fade--in.t1 Hello, I'm Jason.
                 h1.content--nomargin.content__title.content--white.animated.slide--left.fade--in.t1 Pleased to be of service.
-                p.content.content--white.animated.slide--left.fade--in.t1 No time to chat? Please <a class="content--white content__link" href="files/Curriculum_Vitae_June_2017.pdf"
+                p.content.content--white.animated.slide--left.fade--in.t1 No time to chat? Please <a class="content--white content__link" href="files/2017-07_JasonWilson_CurriculumVitae.pdf"
                     | download="#{moment(Date.now()).format('YYYY-MM')}_JasonWilson_CV" >
                     | download my CV</a> <span class="fa content--white content__fa fa-file-pdf-o"></span> and drop me a line when you can
                     | at <a class="content--white content__link" href="mailto:jason@wilsons.io">Jason@Wilsons.io</a>.
             <!-- End Intro -->
 
             <!-- Offerings Section -->
-            section.section.offerings.columns.columns--2(data-placemark="#offerings")
+            section.section.offerings.columns.columns--2(data-placemark="#offerings", id="offerings")
                 article.offerings__area
                     h1.content__title What I offer...
                     ul.content__list
@@ -88,7 +88,7 @@ html.no-js(lang="en")
             <!-- End Spacer -->
 
             <!-- Projects Section -->
-            section.section.projects(data-placemark="#projects")
+            section.section.projects(data-placemark="#projects", id="projects")
                 h1.content__title Projects and Collabs
 
                 .columns.columns--2
@@ -144,7 +144,7 @@ html.no-js(lang="en")
                         a.content.content__link(href="https://www.wilsons.io") Wilsons.io
                         p.content.content--nomargin Fullstack Projects, UX Training
 
-                h1.content__title.content__title--lead(data-placemark="#experience") Volunteer Work
+                h1.content__title.content__title--lead(data-placemark="#volunteer", id="volunteer") Volunteer Work
                 .columns.columns--2
                     article.experience__area
                         label.content.content--small Feb 2017 to Present
@@ -161,7 +161,7 @@ html.no-js(lang="en")
                         p.content.content--nomargin Graphics Design, Web Design, Communications, Boating Safety Instructor
 
             <!-- End Experience -->
-            footer.section.footer
+            footer.section.footer(data-placemark="#contact", id="contact")
                 h1.content__title.content--white Can I do great things as part of your team? Please get in touch!
                 p.content.content--white Jason Wilson: Jason@Wilsons.io
                 p.content.content--white <a class="footer__method" href="https://github.com/sgiobairog" target="_blank">
