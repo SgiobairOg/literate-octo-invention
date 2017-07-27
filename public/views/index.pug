@@ -16,6 +16,7 @@ html.no-js(lang="en")
                 .progress__bar.t1
 
         .wrapper.home
+            .page__backdrop.page__backdrop--bg1
             <!-- Header Section -->
             header.header
                 .header__fill.header__fill--cap.
@@ -32,163 +33,138 @@ html.no-js(lang="en")
 
                 .header__fill.header__fill--trail
                     .header__tagline
-                       p.content Designer. Frontender. Project Manager. Analyst. UX Wonk. Seafaring Story-teller.
+                       h1.content__title Designer. Frontender. Project Manager. Analyst. UX Wonk. Seafaring Story-teller.
 
             <!-- End Header Section -->
 
-            <!-- Into Section -->
+            <!-- Intro Section -->
             section.section.intro
-                h1.title--light.animated.slide--left.fade--in.t1 Hello, I'm Jason.
-                h1.title--light.animated.slide--left.fade--in.t1 Pleased to be of service.
-                p.content--light.animated.slide--left.fade--in.t1 No time to chat? Please <a class="content--light content__link" href="files/Curriculum_Vitae_June_2017.pdf"
+                h1.content--nomargin.content__title.content--white.animated.slide--left.fade--in.t1 Hello, I'm Jason.
+                h1.content--nomargin.content__title.content--white.animated.slide--left.fade--in.t1 Pleased to be of service.
+                p.content.content--white.animated.slide--left.fade--in.t1 No time to chat? Please <a class="content--white content__link" href="files/Curriculum_Vitae_June_2017.pdf"
                     | download="#{moment(Date.now()).format('YYYY-MM')}_JasonWilson_CV" >
-                    | download my CV</a><span class="fa content--light content__fa fa-file-pdf-o"></span> and drop me a line when you can
-                    | at <a class="content--light content__link" href="mailto:jason@wilsons.io">Jason@Wilsons.io</a>.
+                    | download my CV</a> <span class="fa content--white content__fa fa-file-pdf-o"></span> and drop me a line when you can
+                    | at <a class="content--white content__link" href="mailto:jason@wilsons.io">Jason@Wilsons.io</a>.
             <!-- End Intro -->
 
             <!-- Offerings Section -->
-            section.section.offerings
-                h1.offerings__title(id="expertise" data-placemark="#expertise") What can I do for you?
-                p.content
-                  | I have spent my career investing in skillsets to meet project and employer
-                  | needs as they arise. I love having the flexibility to jump in where needed
-                  | to bring a project along. If you'd like, please
-                  | <a class="offerings__link" href="files/Curriculum_Vitae_June_2017.pdf"
-                  | download="#{moment(Date.now()).format('YYYY-MM')}_JasonWilson_CV" >
-                  |  download my CV</a><span class="fa .offerings__fa fa-file-pdf-o offerings__fa"></span>.
-
-                .columns.columns--2
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Clean, Responsive, Frontend Markup
-                        p.focus-content
-                          | Frontend is where I got my start. When you need responsive, flexible, templates and
-                          | layouts I'm ready to help whether you're working with HTML, HAML, PUG, or anything
-                          | else you'd like.
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Purpose Built JS
-                        p.focus-content
-                          | Need some client side scripting? Want to make your interactions pop? Customize your
-                          | video player? Hook into the latest Artificial Intelligence API? I can code from scratch or
-                          | implement libraries as needed.
-
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Backend and APIs
-                        p.content
-                          | Looking to leverage server side logic or to build an API to share your project with the world?
-                          | I’m comfortable building up PHP, ASP, and especially NODE backends for your data-driven needs.
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Project Management
-                        p.content
-                          | Whether surveying the bottom of a fjord or building the latest release of your new app, focus, communication, and
-                          | clear goals will keep things on track. I’ve years of experience managing projects
-                          | from field work, to procurements, to emergency response, and product development.
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Training & Team Development
-                        p.content
-                          | When your team has the opportunity to try new things and learn new techniques everyone benefits.
-                          | In my role as an officer I prided myself in finding the best ways to pass on knowledge and help
-                          | my peers explore their abilities. In my current role I’ve continued to put that experience to
-                          | use helping my team, from development to customer service to sales, gain the knowledge to help
-                          | us provide the best experience to our customers.
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title User Experience
-                        p.content
-                          | Reaching your users and better understanding their needs and your business needs is at the core
-                          | of earning users and retaining them. Since my introduction to Human Factors I’ve worked to expand
-                          | my knowledge of User Experience practices. I pride myself on understanding how details connect
-                          | to drive the big picture, how responsive design doesn’t end at screen size, and how user experience
-                          | doesn’t end in the browser.
-                    article.focus-area.columns--2__cell
-                        h1.focus-area__title Business Analysis
-                        p.content
-                          | You need someone who understands the requirements and processes of design and development and
-                          | how business needs and processes support or hinder those processes. I’ve combined my years of
-                          | experience in web development with my project management and operations experience to fulfill
-                          | that analyst role.
+            section.section.offerings.columns.columns--2(data-placemark="#offerings")
+                article.offerings__area
+                    h1.content__title What I offer...
+                    ul.content__list
+                        li.content__list-item At home in the Frontend realm
+                        li.content__list-item An eye for functional, user-friendly designs
+                        li.content__list-item Curiosity about new technologies
+                        li.content__list-item Driven to grow myself and my teammates
+                        li.content__list-item A thirst for Dev and UX knowledge
+                        li.content__list-item Leadership and mentoring skills
+                        li.content__list-item Friendly and supportive personality
+                        li.content__list-item Comfortable speaker
+                        li.content__list-item The occasional relevant sea-story
+                        li.content__list-item Free samples!
+                            | <a class="content__link" href="https://github.com/sgiobairog" target="_blank"><span class="fa inline__fa fa-github"></span></a>
+                            | <a class="content__link" href="https://codepen.io/sgiobairog" target="_blank"><span class="fa inline__fa fa-codepen"></span></a>
+                            | <a class="content__link" href="https://medium.com/@Wilsons.io" target="_blank"><span class="fa inline__fa fa-medium"></span></a>
+                            | <a class="content__link" href="https://www.behance.net/JasonPaulWilson" target="_blank"><span class="fa inline__fa fa-behance"></span></a>
+                article.offerings__area
+                    h1.content__title What you offer...
+                    ul.content__list
+                        li.content__list-item Close-knit, agile, professional team
+                        li.content__list-item An inspiring workspace
+                        li.content__list-item Variety of projects in which to participate
+                        li.content__list-item Training and/or Education Budget
+                        li.content__list-item Conference attendance opportunities
+                        li.content__list-item Opportunities to try new things
+                        li.content__list-item Challenging problems to solve
+                        li.content__list-item Flexible working hours
+                        li.content__list-item Offices in Switzerland or Germany
+                        li.content__list-item Remote possible (just for a few months)
             <!-- End Offerings -->
 
-            include partials/value20170705.pug
+            <!-- Spacer Section -->
+            section.section.spacer
+                p.content.content--white.content--small NOAA Ship Fairweather, my first sea-going assignment and where I first encountered
+                    |  UX in the form of Human Factors.
+            <!-- End Spacer -->
+
+            <!-- Projects Section -->
+            section.section.projects(data-placemark="#projects")
+                h1.content__title Projects and Collabs
+
+                .columns.columns--2
+                    article.project__area
+                        label.content.content--small Serverless, NodeJS, Lambda
+                        h1.content.content--nomargin <span class="content--heavy">Cumber Bot</span>, Alexa Skill
+                        p.content.content--nomargin Simple Alexa Skill written with NodeJS and the Serverless Framework. Responds to user requests with a poor attempt at recalling Benedict Cumberbatch's name.
+                        p.content.content--nomargin
+                            a.content.content__link(href="https://www.amazon.com/Jason-Wilson-CumberBot/dp/B073BL81K7") Give it a try in the Alexa Store <span class="fa fa-amazon"></span>
+                        p.content.content--nomargin
+                            a.content.content__link(href="https://www.github.com/sgiobairog/cumber-bot") View the source at GitHub <span class="fa fa-github"></span>
+
+                    article.project__area
+                        label.content.content--small Pug, Sass, ES6
+                        h1.content.content--nomargin <span class="content--heavy">Seven Candles</span>, Frontend
+                        p.content.content--nomargin Popular Mechanics inspired me to make a Pug, SASS, and JavaScript implementation of their <a href="http://www.popularmechanics.com/science/math/a26818/riddle-of-the-week-30-seven-candles/" target="_blank">candle riddle</a>
+                        p.content.content--nomargin
+                            a.content.content__link(href="https://codepen.io/SgiobairOg/pen/rweGQz/") See it in action at Codepen <span class="fa fa-codepen"></span>
+
+            <!-- End Projects -->
+
+            <!-- Spacer Section -->
+            section.section.spacer
+                p.content.content--white.content--small Making candles at the Zürcher Kurzenziehen, during our visit in 2016, while my
+                    |  daughter Aislin watches on.
+            <!-- End Spacer -->
 
             <!-- Experience Section -->
             section.section.experience
-                h1.experience__title Diverse Experience, Diverse Solutions
-                h2.experience__subtitle(data-placemark="#professional") Professional Experience
+                h1.content__title(data-placemark="#experience") My Journey
+                .columns.columns--2
+                    article.experience__area
+                        label.content.content--small Jan 2017 to Present
+                        h1.content.content--nomargin <span class="content--heavy">Trader Interactive</span>, Norfolk, VA
+                        a.content.content__link(href="https://traderinteractive.com") TraderInteractive.com
+                        p.content.content--nomargin Business Analyst, Frontend Mentor
 
+                    article.experience__area
+                        label.content.content--small Sep 2016 to Present
+                        h1.content.content--nomargin <span class="content--heavy">Independent/Freelance</span>
+                        a.content.content__link(href="https://www.wilsons.io") Wilsons.io
+                        p.content.content--nomargin Fullstack Projects, UX Training
 
-                .columns.columns--3
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label January 2017 to Present
-                        h1.focus-area__title.focus-area__title RV Web Services
-                        h2.focus-area__subtitle Norfolk, VA USA
-                        a.focus-area__link(href="https://rvwebservices.com") RVWebServices.com
-                        p.content Experienced Business Analyst
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label September 2016 to Present
-                        h1.focus-area__title.focus-area__title Freelance
-                        a.focus-area__link(href="https://wilsons.io") Wilsons.io
-                        p.content Design and Development, NodeJS, Angular, React
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label December 2014 to September 2016
-                        h1.focus-area__title.focus-area__title NOAA SARSAT Program Office
-                        h2.focus-area__subtitle Suitland, MD
-                        a.focus-area__link(href="http://www.sarsat.noaa.gov")  www.SARSAT.NOAA.gov
-                        p.content Operations Support and Outreach Programs, Ship Operations
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label December 2011 to December 2014
-                        h1.focus-area__title.focus-area__title NOAA Marine Operations Center - Atlantic
-                        h2.focus-area__subtitle Norfolk, VA USA;
-                        a.focus-area__link(href="https://www.omao.noaa.gov/explore/facilities/marine-operations-center-atlantic-moc")  www.omao.noaa.gov
-                        p.content Small Boat Operations, Engineering, Acquisiton Management, and Training
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label December 2009 to December 2011
-                        h1.focus-area__title.focus-area__title NOAA Ship Fairweather<br>
-                        h2.focus-area__subtitle Ketchikan, AK USA
-                        a.focus-area__link(href="https://www.omao.noaa.gov/learn/marine-operations/ships/fairweather")  www.omao.noaa.gov
-                        p.content Navigation Team Management, Hydrographic Survey, Damage Control, Emergency Response Development, and Training
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label August 2009 to December 2009
-                        h1.focus-area__title.focus-area__title Basic Officer Training Course 115
-                        h2.focus-area__subtitle King's Point, NY USA
-                        a.focus-area__link(href="https://www.omao.noaa.gov/learn/noaa-corps/about/class-rosters/botc-115")  www.omao.noaa.gov
-                        p.content Ship Operations
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label December 2008 to July 2009
-                        h1.focus-area__title.focus-area__title L3 Communications - USCG Performance Technology
-                        h2.focus-area__subtitle Yorktown, VA USA
-                        a.focus-area__link(href="http://www.forcecom.uscg.mil/Our-Organization/FORCECOM-DIVISIONS/Training/Training-Branches/FC-Tptc/") www.forcecom.uscg.mil
-                        p.content Program Development, Graphics Design, Website Management
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label June 2006 to December 2008
-                        h1.focus-area__title.focus-area__title UNITECH - USCG Performance Technology
-                        h2.focus-area__subtitle Yorktown, VA USA
-                        a.focus-area__link(href="http://www.forcecom.uscg.mil/Our-Organization/FORCECOM-DIVISIONS/Training/Training-Branches/FC-Tptc/") www.forcecom.uscg.mil
-                        p.content Programmer, Graphics Design, Website Development (PHP/SQL), and Portable Server Integration
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label December 2005 to June 2006
-                        h1.focus-area__title.focus-area__title Trader Electronic Media
-                        h2.focus-area__subtitle Virginia Beach, VA USA
-                        p.content Frontend Development, XHTML/CSS, W3C implementation
-                h2.experience__subtitle(data-placemark="#volunteer") Volunteer Experience
-                .columns.columns--3
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label  February 2017 to present
-                        h1.focus-area__title  Coastal Virginia GAA
-                        h2.focus-area__subtitle  Norfolk, VA
-                        p.content Graphics Design, Branding, Social Media
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label  February 2012 to February 2015
-                        h1.focus-area__title  Hampton Roads Hurling Club
-                        h2.focus-area__subtitle   Norfolk, VA
-                        p.content Graphics Design, Branding, Social Media
-                    article.focus-area.columns--3__cell
-                        label.focus-area__label  October 2007 to August 2009
-                        h1.focus-area__title  US Coast Guard Auxiliary
-                        h2.focus-area__subtitle  Gloucester, VA
-                        p.content Graphics Design, Web Design, Communications, Boating Safety Instructor
+                    article.experience__area
+                        label.content.content--small Aug 2009 to Sep 2016
+                        h1.content.content--nomargin <span class="content--heavy">NOAA Corps</span>, United States
+                        a.content.content__link(href="http://www.noaacorps.noaa.gov") NOAACorps.NOAA.gov
+                        p.content.content--nomargin Administration, Hydrographic Survey, Ships Navigation, Public Outreach
+
+                    article.experience__area
+                        label.content.content--small Sep 2016 to Present
+                        h1.content.content--nomargin <span class="content--heavy">Independent/Freelance</span>
+                        a.content.content__link(href="https://www.wilsons.io") Wilsons.io
+                        p.content.content--nomargin Fullstack Projects, UX Training
+
+                h1.content__title.content__title--lead(data-placemark="#experience") Volunteer Work
+                .columns.columns--2
+                    article.experience__area
+                        label.content.content--small Feb 2017 to Present
+                        h1.content.content--nomargin <span class="content--heavy">Coastal Virginia GAA</span>, Norfolk, VA
+                        p.content.content--nomargin Social Media, Graphic Design, Branding
+                    article.experience__area
+                        label.content.content--small Feb 2012 to Feb 2015
+                        h1.content.content--nomargin <span class="content--heavy">Hampton Roads Hurling Club</span>, Norfolk, VA
+                        p.content.content--nomargin Social Media, Graphic Design, Branding, Goaltender, Corner Forward
+
+                    article.experience__area
+                        label.content.content--small Oct 2007 to Sep 2009
+                        h1.content.content--nomargin <span class="content--heavy">U.S. Coast Guard Auxiliary</span>, Gloucester, VA
+                        p.content.content--nomargin Graphics Design, Web Design, Communications, Boating Safety Instructor
+
+            <!-- End Experience -->
             footer.section.footer
-                h1.footer__title Can I do great things for you? Get in touch!
-                p.content Jason Wilson: Jason@Wilsons.io
-                p.content <a class="footer__method" href="https://github.com/sgiobairog" target="_blank">
+                h1.content__title.content--white Can I do great things as part of your team? Please get in touch!
+                p.content.content--white Jason Wilson: Jason@Wilsons.io
+                p.content.content--white <a class="footer__method" href="https://github.com/sgiobairog" target="_blank">
                     | <span class="fa footer__fa fa-github"></span></a><a class="footer__method" href="https://codepen.io/sgiobairog" target="_blank">
                     | <span class="fa footer__fa fa-codepen"></span></a><a class="footer__method" href="https://twitter.com/WilsonUponSea" target="_blank">
                     | <span class="fa footer__fa fa-twitter"></span></a> <a class="footer__method" href="https://www.linkedin.com/in/jasonpaulwilson/" target="_blank">
@@ -198,9 +174,9 @@ html.no-js(lang="en")
                     | <span class="fa footer__fa fa-behance"></span></a>
                 a.button.t2(href="mailto:jason@wilsons.io") Email me
 
-            section.section.endcap
-                p.content For the curious and the details oriented, this site is built on NodeJS and Express, is deployed on Heroku, and is rendered with Pug, SASS, and ES6.
-                p.content Inspired by <a href="https://www.dagmarmuth.com">Dagmar Muth</a> and my daughter's never-ending unicorn-induced joy.
+            section.endcap
+                p.content.content--heavy.content--white For the curious and the details oriented, this site is built on NodeJS and Express, is deployed on Heroku, and is rendered with Pug, SASS, and ES6.
+                p.content.content--heavy.content--white Inspired by <a href="https://www.dagmarmuth.com">Dagmar Muth</a> and my daughter's never-ending unicorn-induced joy.
                 
         script(src="js/vendor/lodash.custom.js")
         script(src="js/main.build.js")

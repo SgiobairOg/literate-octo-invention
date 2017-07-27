@@ -26,16 +26,13 @@ head
     href="apple-touch-icon.png"
     )
 
-    link(
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Playfair+Display"
-    )
+
     script(
-    src="https://use.typekit.net/vzw6sce.js"
+        src="https://use.typekit.net/vzw6sce.js"
     )
     script.
         try{
-            Typekit.load({ async: true });
+            Typekit.load({ async: false });
         }catch(e){};
 
     link(

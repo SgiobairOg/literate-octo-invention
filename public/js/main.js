@@ -3,7 +3,10 @@ const animations = document.querySelectorAll('.animated')
   , placemarks = document.querySelectorAll('[data-placemark]')
   , progressBar = document.querySelector('.progress__bar')
   , bg2Target = document.querySelector('.offerings')
+  , bg3Target = document.querySelector('.projects')
+  , bg4Target = document.querySelector('.experience')
   , wrapper = document.querySelector('.wrapper').classList
+  , backdrop = document.querySelector('.page__backdrop').classList
   , body = document.body
   , html = document.documentElement
   , pageHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight )
@@ -33,10 +36,34 @@ const checkProgress = ( scrollY ) => {
 };
 
 const checkBG = ( scrollY ) => {
-  if(bg2Target != null) {
-    if (scrollY > bg2Target.positionData.trigger) wrapper.add('bg2');
-    if (scrollY <= bg2Target.positionData.trigger) wrapper.remove('bg2');
+  console.log(scrollY);
+  switch (true) {
+    case scrollY <= bg2Target.positionData.trigger:
+      backdrop.add('page__backdrop--bg1');
+      backdrop.remove('page__backdrop--bg2');
+      break;
+    case scrollY > bg2Target.positionData.trigger && scrollY <= bg3Target.positionData.trigger:
+      backdrop.remove('page__backdrop--bg1');
+      backdrop.add('page__backdrop--bg2');
+      backdrop.remove('page__backdrop--bg3');
+      break;
+    case scrollY > bg3Target.positionData.trigger && scrollY <= bg4Target.positionData.trigger:
+      backdrop.remove('page__backdrop--bg2');
+      backdrop.add('page__backdrop--bg3');
+      backdrop.remove('page__backdrop--bg4');
+      break;
+    case scrollY > bg4Target.positionData.trigger:
+      backdrop.add('page__backdrop--bg4');
+      backdrop.remove('page__backdrop--bg3');
+      break;
+    default:
+      backdrop.add('page__backdrop--bg1');
+      backdrop.remove('page__backdrop--bg2');
+      backdrop.remove('page__backdrop--bg3');
+      backdrop.remove('page__backdrop--bg4');
+      break;
   }
+  
 };
 
 const checkPlacemark = ( scrollY ) => {
@@ -54,11 +81,13 @@ const checkPlacemark = ( scrollY ) => {
 
 const checkScroll = () => {
   latestScrollY = window.scrollY;
+  
   getTicker();
 };
 
 const getTicker = () => {
   if(!ticking) requestAnimationFrame(update);
+  
   ticking = true;
 };
 
@@ -70,12 +99,15 @@ const update = () => {
   if (animations.length > 0) {
     checkAnimation( currScrollY );
   }
+  
   if (placemarks.length > 0) {
     checkPlacemark( currScrollY );
   }
+  
   if (progressBar != null) {
     checkProgress( currScrollY );
   }
+  
   checkBG( currScrollY );
 };
 
@@ -91,6 +123,18 @@ const initScrollResponders = () => {
   if( bg2Target != null ) {
     bg2Target.positionData = {
       trigger: (bg2Target.offsetTop + (bg2Target.offsetHeight / 6))
+    };
+  }
+  
+  if( bg3Target != null ) {
+    bg3Target.positionData = {
+      trigger: (bg3Target.offsetTop + (bg3Target.offsetHeight / 6))
+    };
+  }
+  
+  if( bg4Target != null ) {
+    bg4Target.positionData = {
+      trigger: (bg4Target.offsetTop + (bg4Target.offsetHeight / 6))
     };
   }
 };
@@ -115,7 +159,7 @@ const preloadImages = (array) => {
   });
 };
 
-preloadImages(["../img/laptop.png"]);
+preloadImages(["../img/moi.jpg", "../img/candles.jpg", "../img/fairweather.jpg", "../img/desk.jpg"]);
 
 window.addEventListener('load', initScrollResponders);
 window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));

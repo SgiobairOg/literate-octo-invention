@@ -2,9 +2,6 @@
 /* ==========================================================================
    Base styles
    @mixin ========================================================================= */
-html {
-  font-size: calc(24px + (36 - 24) * (100vw - 450)/(1366 - 450)); }
-
 html, body {
   margin: 0;
   padding: 0; }
@@ -24,33 +21,64 @@ svg {
 /* ========================================================================
   Typography
   @mixin ======================================================================= */
-.content, .browserupgrade, .offerings__content, .offerings__link, .focus-area__content, .footer__method, .four-oh-four__content {
+body {
+  font-size: 24px;
+  font-size: 3vw; }
+  @media (max-width: 600px) {
+    body {
+      font-size: 18px; } }
+  @media (min-width: 800px) {
+    body {
+      font-size: 24px; } }
+
+.content, .content__title, .notifications, .button, .four-oh-four__title, .content__list-item, .browserupgrade, .footer__method, .four-oh-four__content {
   font-size: 1em;
-  font-family: "museo-sans", serif;
-  line-height: 1.5em;
+  font-family: "museo-sans", sans-serif;
+  line-height: 1.4em;
   font-weight: 300;
   color: #0f0f0f; }
-  .content--light {
+  .content--white {
     color: #f0f0f0; }
-  .content__link:link, .offerings__link:link, .focus-area__link:link {
+  .content--small {
+    font-size: .5em;
+    font-weight: 100; }
+  .content--heavy {
+    font-weight: 700; }
+  .content--nomargin {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .content__link:link {
+    color: rgba(112, 194, 247, 0.8);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(112, 194, 247, 0.4); }
+  .content__link:visited {
     color: #70c2f7;
-    text-decoration: none; }
-  .content__link:visited, .offerings__link:visited, .focus-area__link:visited {
-    color: rgba(0, 0, 0, 0.6); }
-  .content__link:hover, .offerings__link:hover, .focus-area__link:hover {
+    border-bottom: 1px dashed rgba(112, 194, 247, 0.4); }
+  .content__link:hover {
     color: rgba(112, 194, 247, 0.8);
     text-decoration: underline; }
-  .content__link:active, .offerings__link:active, .focus-area__link:active {
+  .content__link:active {
     color: rgba(0, 0, 0, 0.8);
     text-decoration: underline; }
-  .content__title, .notifications, .intro__title, .offerings__title, .focus-area__title, .focus-area__subtitle, .focus-area__link, .focus-area__label, .value__title, .experience__title, .experience__subtitle, .footer__title, .footer__content, .button, .endcap__content, .four-oh-four__title {
+  .content__title, .notifications, .button, .four-oh-four__title {
     display: block;
-    font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: 500; }
+    font-weight: 700;
+    font-size: 2.6em;
+    line-height: 1.2em; }
+    .content__title--lead {
+      margin-top: 1.5em; }
+    .content__title:last-of-type, .notifications:last-of-type, .button:last-of-type, .four-oh-four__title:last-of-type {
+      margin-bottom: 1em; }
+  .content__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+  .content__list-item {
+    margin-bottom: .5em; }
+
+.inline__fa {
+  margin: 0 5px; }
 
 /* ========================================================================
    Masthead
@@ -99,26 +127,40 @@ svg {
    @mixin ========================================================================= */
 .wrapper {
   width: 100vw;
-  min-height: 100vh;
-  background: url("../img/fairweather.jpg") no-repeat fixed center;
-  background-size: cover; }
-  @media screen and (max-width: 680px) {
-    .wrapper {
-      background: white; } }
+  min-height: 100vh; }
+
+.page__backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -99; }
+  .page__backdrop--bg1 {
+    background: url("../img/moi.jpg") no-repeat fixed center;
+    background-size: cover; }
+  .page__backdrop--bg2 {
+    background: url("../img/fairweather.jpg") no-repeat fixed center;
+    background-size: cover; }
+  .page__backdrop--bg3 {
+    background: url("../img/candles.jpg") no-repeat fixed center;
+    background-size: cover; }
+  .page__backdrop--bg4 {
+    background: url("../img/desk.jpg") no-repeat fixed center;
+    background-size: cover; }
 
 /* ==========================================================================
-   Browser Upgrade Prompt
+   Header Section
    @mixin ========================================================================= */
 .header {
   display: flex;
   flex-flow: column nowrap;
   height: 90vh; }
-  @media screen and (max-width: 680px) {
-    .header {
-      background: #70c2f7; } }
+  .header__tagline {
+    margin: 1em 9.4vw; }
   .header__fill {
     background: white;
     flex: 1 0 auto; }
+    .header__fill--cap {
+      min-height: 1.5em; }
 
 .knockoutTitle {
   flex: 0 0 auto; }
@@ -126,48 +168,63 @@ svg {
 /* ==========================================================================
    Basic Section Styles
    @mixin ========================================================================= */
-.section, .tween {
+.section, .endcap, .tween {
   width: 100%;
   box-sizing: border-box;
-  padding: 9.4vw; }
+  padding: 3em 9.4vw;
+  min-height: 90vh; }
 
 /* ==========================================================================
    Intro Section
    @mixin ========================================================================= */
 .intro {
   color: white;
-  background: rgba(70, 70, 70, 0.4);
-  background-size: 1px 1px; }
+  margin-top: 42vh;
+  min-height: 58vh;
+  background: rgba(70, 70, 120, 0.4); }
 
+/* ==========================================================================
+   Offerings Section
+   @mixin ========================================================================= */
 .offerings {
   background: white; }
-  .offerings__content {
-    font-style: italic; }
-  .offerings__fa {
-    margin: 0 .5em;
-    margin-right: 0;
-    padding: .1em; }
+  .offerings__area {
+    padding-top: 2em; }
 
-.focus-area__title {
-  font-size: 1.2em;
-  color: rgba(0, 0, 0, 0.7); }
+/* ==========================================================================
+   Spacer Section
+   @mixin ========================================================================= */
+.spacer {
+  background: rgba(70, 70, 120, 0.4);
+  height: 90vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; }
 
-.focus-area__subtitle {
-  font-size: 1em;
-  font-weight: 300; }
+/* ==========================================================================
+   Experience Section
+   @mixin ========================================================================= */
+.experience {
+  background: white; }
+  .experience__area {
+    margin-bottom: 1.2em; }
+    .experience__area:last-of-type {
+      margin-bottom: 0; }
 
-.focus-area__content {
-  font-size: 1em;
-  color: rgba(0, 0, 0, 0.5); }
+/* ==========================================================================
+   Projects Section
+   @mixin ========================================================================= */
+.projects {
+  background: white; }
 
-.focus-area__link {
-  font-size: .9em; }
+.project__area {
+  margin-bottom: 2.5em; }
+  .project__area:last-of-type {
+    margin-bottom: 0; }
 
-.focus-area__label {
-  font-size: .9em;
-  font-weight: 100;
-  font-style: italic; }
-
+/* ==========================================================================
+   Grid Sections
+   @mixin ========================================================================= */
 .columns {
   width: 100%; }
   @supports (grid-row-gap: 4.7vw) {
@@ -200,88 +257,18 @@ svg {
             margin-left: 0; }
           .columns--2__cell:nth-child(2n) {
             margin-right: 0; } } }
-  @supports (grid-row-gap: 3.7vw) {
-    .columns--3 {
-      grid-template-columns: repeat(1, 1fr);
-      grid-column-gap: 2.7vw;
-      grid-row-gap: 2.7vw; }
-      @media screen and (min-width: 560px) {
-        .columns--3 {
-          grid-template-columns: repeat(2, 1fr); } }
-      @media screen and (min-width: 860px) {
-        .columns--3 {
-          grid-template-columns: repeat(3, 1fr); } } }
-  @supports not (grid-row-gap: 4.7vw) {
-    .columns--3__cell {
-      margin: 2.7vw;
-      flex: 0 0 50%; }
-      .columns--3__cell:nth-child(-n+1) {
-        margin-top: 0; }
-      .columns--3__cell:nth-child(1n) {
-        margin-left: 0;
-        margin-right: 0; }
-      @media screen and (min-width: 560px) {
-        .columns--3__cell:nth-child(-n+2) {
-          margin-top: 0; }
-        .columns--3__cell:nth-child(1n) {
-          margin-left: 0; }
-        .columns--3__cell:nth-child(2n) {
-          margin-right: 0; } }
-      @media screen and (min-width: 860px) {
-        .columns--3__cell {
-          flex: 0 0 33%; }
-          .columns--3__cell:nth-child(-n+3) {
-            margin-top: 0; }
-          .columns--3__cell:nth-child(1n) {
-            margin-left: 0; }
-          .columns--3__cell:nth-child(3n) {
-            margin-right: 0; } } }
 
-.value {
-  background: rgba(70, 70, 70, 0.4);
-  background-size: 1px 1px;
-  min-height: 70vh;
-  color: white;
-  /*&__aside
-    color: white
-    flex: 1 0 100%
-
-    @supports not (grid-row-gap: 4.7vw)
-      @media screen and (min-width: 1190px)
-        flex: 1 0 50%
-        margin-right: 4.7vw */
-  /*&__content
-    color: white
-
-    @supports not (grid-row-gap: 4.7vw)
-      flex: 1 0 100%
-      @media screen and (min-width: 1190px)
-        flex: 1 0 50% */
-  /*@supports (grid-row-gap: 4.7vw)
-    display: grid
-    grid-template-columns: repeat(1, 1fr)
-    grid-column-gap: 4.7vw
-    grid-row-gap: 4.7vw
-    @media screen and (min-width: 1190px)
-      grid-template-columns: repeat(2, 1fr) */
-  /*@supports not (grid-row-gap: 4.7vw)
-    display: flex
-    flex-flow: row wrap
-    justify-content: center
-    align-items: center */ }
-
-.experience {
-  background: white; }
-  .experience__subtitle {
-    font-size: 1.2em; }
-
+/* ==========================================================================
+   Footer Section
+   @mixin ========================================================================= */
 .footer {
-  color: white;
-  background: rgba(27, 27, 27, 0.5);
-  background-size: 1px 1px; }
-  .footer__content {
-    font-size: 1.7em;
-    font-weight: 200; }
+  background: rgba(70, 70, 120, 0.4);
+  margin-top: 42vh;
+  min-height: 58vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center; }
   .footer__method {
     text-decoration: none;
     line-height: 3em;
@@ -295,7 +282,7 @@ svg {
     min-width: 2em;
     line-height: 3em;
     text-align: center;
-    margin: 0 .5em;
+    margin: 0 .1em;
     background: rgba(255, 255, 255, 0); }
 
 .fa:hover {
@@ -333,14 +320,12 @@ svg {
     transform: scale(1, 1.1); }
 
 .endcap {
+  min-height: 0;
   padding-top: 2vw;
   padding-bottom: 4vw;
   margin: 0;
   background: #70c2f7;
   background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%); }
-  .endcap__content {
-    font-size: 1.3em;
-    color: white; }
 
 .four-oh-four {
   background: white; }
@@ -368,15 +353,6 @@ svg {
 
 .t2 {
   transition: all 300ms cubic-bezier(0.395, 0.89, 0.68, 1.65); }
-
-/* ==========================================================================
-  Backgrounds
-  @mixin ========================================================================== */
-.bg2 {
-  background-image: url("../img/laptop.jpg") !important; }
-  @media screen and (max-width: 680px) {
-    .bg2 {
-      background-image: none !important; } }
 
 /* ==========================================================================
    Helper classes
