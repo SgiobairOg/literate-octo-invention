@@ -1,12 +1,27 @@
 /* Jason Wilson @WilsonUponSea */
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false)
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width')
+  $min-breakpoint: $min / $responsive-unitless * 100
 
+  @media (max-#{$dimension}: #{$min-breakpoint})
+    font-size: $min
+
+
+  @if $max
+    $max-breakpoint: $max / $responsive-unitless * 100
+
+    @media (min-#{$dimension}: #{$max-breakpoint})
+      font-size: $max
+
+  @if $fallback
+    font-size: $fallback
+
+  font-size: $responsive
 
 /* ==========================================================================
    Base styles
    ========================================================================== */
-
-html
-  font-size: calc(18px + (30 - 18) * (100vw - 450)/(1366 - 450))
 
 html, body  //Reset
   margin: 0
@@ -30,18 +45,43 @@ img,
 svg
   vertical-align: middle
 
-.base__content
-  font-size: 1em
-  font-family: "Playfair Display", serif
-  line-height: 1.5em
+/* ========================================================================
+  Typography
+  ======================================================================== */
 
-.base__link
-  &:link
-    color: rgba(112,194,247,1)
-    text-decoration: none
+body
+  @include responsive-font(3vw, 18px, 24px, 24px)
+
+.content
+  font-size: 1em
+  font-family: "museo-sans", sans-serif
+  line-height: 1.4em
+  font-weight: 300
+  color: #0f0f0f
+
+  &--white
+    color: #f0f0f0
+
+  &--small
+    font-size: .5em
+    font-weight: 100
+
+  &--heavy
+    font-weight: 700
+
+  &--nomargin
+    margin-top: 0
+    margin-bottom: 0
+
+  &__link
+    &:link
+      color: rgba(112,194,247,.8)
+      text-decoration: none
+      border-bottom: 1px solid rgba(112,194,247,.4)
 
     &:visited
-      color: rgba(0,0,0,.6)
+      color: rgba(112,194,247,1)
+      border-bottom: 1px dashed rgba(112,194,247,.4)
 
     &:hover
       color: rgba(112,194,247,.8)
@@ -51,16 +91,33 @@ svg
       color: rgba(0,0,0,.8)
       text-decoration: underline
 
-.base__title
-  display: block
-  font-size: 2em
-  margin-top: 0.67em
-  margin-bottom: 0.67em
-  margin-left: 0
-  margin-right: 0
-  font-weight: bold
-  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif
+  &__title
+    @extend .content
+    display: block
+    font-weight: 700
+    font-size: 2.6em
+    line-height: 1.2em
 
+    &--lead
+      margin-top: 1.5em
+
+    &:last-of-type
+      margin-bottom: 1em
+
+  &__list
+    list-style-type: none
+    margin: 0
+    padding: 0
+    width: 100%
+
+  &__list-item
+    @extend .content
+    margin-bottom: .5em
+
+
+.inline__fa
+  //min-width: 44px
+  margin: 0 5px
 
 /* ========================================================================
    Masthead
@@ -77,7 +134,7 @@ svg
    ========================================================================== */
 
 .browserupgrade
-  @extend .base__content
+  @extend .content
   background: #ddd
   color: #000
   padding: 0.2em 0
@@ -86,7 +143,7 @@ svg
    notification message
    ========================================================================== */
 .notifications
-  @extend .base__title
+  @extend .content__title
   margin: 0
   font-size: 1em
   background: rgba(54,94,120,1)
@@ -118,14 +175,31 @@ svg
 .wrapper
   width: 100vw
   min-height: 100vh
-  background: url("../img/fairweather.jpg") no-repeat fixed center
-  background-size: cover
 
-  @media screen and (max-width: 680px)
-    background: white
+.page__backdrop
+  width: 100vw
+  height: 100vh
+  position: fixed
+  z-index: -99
+
+  &--bg1
+    background: url("../img/moi.jpg") no-repeat fixed center
+    background-size: cover
+
+  &--bg2
+    background: url("../img/fairweather.jpg") no-repeat fixed center
+    background-size: cover
+
+  &--bg3
+    background: url("../img/candles.jpg") no-repeat fixed center
+    background-size: cover
+
+  &--bg4
+    background: url("../img/desk.jpg") no-repeat fixed center
+    background-size: cover
 
 /* ==========================================================================
-   Browser Upgrade Prompt
+   Header Section
    ========================================================================== */
 
 .header
@@ -133,12 +207,15 @@ svg
   flex-flow: column nowrap
   height: 90vh
 
-  @media screen and (max-width: 680px)
-    background: rgba(112,194,247,1)
+  &__tagline
+    margin: 1em 9.4vw
 
   &__fill
     background: white
     flex: 1 0 auto
+
+    &--cap
+      min-height: 1.5em
 
 .knockoutTitle
   flex: 0 0 auto
@@ -150,7 +227,8 @@ svg
 .section, .tween
   width: 100%
   box-sizing: border-box
-  padding: 9.4vw
+  padding: 3em 9.4vw
+  min-height: 90vh
 
 /* ==========================================================================
    Intro Section
@@ -158,59 +236,61 @@ svg
 
 .intro
   color: white
-  background: rgba(70, 70, 70, 0.4)
-  //background-image: radial-gradient(black 33%, transparent 33%)
-  background-size: 1px 1px
+  margin-top: 42vh
+  min-height: 58vh
+  background: rgba(70, 70, 120, 0.4)
 
-  &__title
-    @extend .base__title
+/* ==========================================================================
+   Offerings Section
+   ========================================================================== */
 
 .offerings
   background: white
 
-  &__title
-    @extend .base__title
+  &__area
+    // Typography
+    padding-top: 2em
 
-  &__content
-    @extend .base__content
-    font-style: italic
+/* ==========================================================================
+   Spacer Section
+   ========================================================================== */
+.spacer
+  background: rgba(70, 70, 120, 0.4)
+  height: 90vh
+  display: flex
+  justify-content: flex-end
+  align-items: flex-end
 
-  &__link
-    @extend .base__content
-    @extend .base__link
 
-  &__fa
-    margin: 0 .5em
-    margin-right: 0
-    padding: .1em
+/* ==========================================================================
+   Experience Section
+   ========================================================================== */
 
-.focus-area
-  // Typography
-  &__title
-    @extend .base__title
-    font-size: 1.2em
-    color: rgba(0,0,0,.7)
+.experience
+  background: white
 
-  &__subtitle
-    @extend .base__title
-    font-size: 1em
-    font-weight: 300
+  &__area
+    margin-bottom: 1.2em
 
-  &__content
-    @extend .base__content
-    font-size: 1em
-    color: rgba(0,0,0,.5)
+    &:last-of-type
+      margin-bottom: 0
 
-  &__link
-    @extend .base__title
-    @extend .base__link
-    font-size: .9em
+/* ==========================================================================
+   Projects Section
+   ========================================================================== */
 
-  &__label
-    @extend .base__title
-    font-size: .9em
-    font-weight: 100
-    font-style: italic
+.projects
+  background: white
+
+.project__area
+  margin-bottom: 2.5em
+
+  &:last-of-type
+    margin-bottom: 0
+
+/* ==========================================================================
+   Grid Sections
+   ========================================================================== */
 
 .columns
   width: 100%
@@ -249,122 +329,22 @@ svg
 
           &:nth-child(2n)
             margin-right: 0
-  &--3
-    @supports (grid-row-gap: 3.7vw)
-      grid-template-columns: repeat(1, 1fr)
-      grid-column-gap: 2.7vw
-      grid-row-gap: 2.7vw
-      @media screen and (min-width: 560px)
-        grid-template-columns: repeat(2, 1fr)
 
-      @media screen and (min-width: 860px)
-        grid-template-columns: repeat(3, 1fr)
-
-    &__cell
-      @supports not (grid-row-gap: 4.7vw)
-        margin: 2.7vw
-        flex: 0 0 50%
-
-        &:nth-child(-n+1)
-          margin-top: 0
-
-        &:nth-child(1n)
-          margin-left: 0
-          margin-right: 0
-
-        @media screen and (min-width: 560px)
-          &:nth-child(-n+2)
-            margin-top: 0
-
-          &:nth-child(1n)
-            margin-left: 0
-
-          &:nth-child(2n)
-            margin-right: 0
-
-        @media screen and (min-width: 860px)
-          flex: 0 0 33%
-
-          &:nth-child(-n+3)
-            margin-top: 0
-
-          &:nth-child(1n)
-            margin-left: 0
-
-          &:nth-child(3n)
-            margin-right: 0
-
-
-.value
-  background: rgba(70, 70, 70, 0.4)
-  //background-image: radial-gradient(black 33%, transparent 33%)
-  background-size: 1px 1px
-  min-height: 70vh
-  color: white
-
-  &__title
-    @extend .base__title
-
-  /*&__aside
-    color: white
-    flex: 1 0 100%
-
-    @supports not (grid-row-gap: 4.7vw)
-      @media screen and (min-width: 1190px)
-        flex: 1 0 50%
-        margin-right: 4.7vw
-
-
-
-  /*&__content
-    color: white
-
-    @supports not (grid-row-gap: 4.7vw)
-      flex: 1 0 100%
-      @media screen and (min-width: 1190px)
-        flex: 1 0 50%
-
-  /*@supports (grid-row-gap: 4.7vw)
-    display: grid
-    grid-template-columns: repeat(1, 1fr)
-    grid-column-gap: 4.7vw
-    grid-row-gap: 4.7vw
-    @media screen and (min-width: 1190px)
-      grid-template-columns: repeat(2, 1fr)
-
-  /*@supports not (grid-row-gap: 4.7vw)
-    display: flex
-    flex-flow: row wrap
-    justify-content: center
-    align-items: center
-
-
-.experience
-  background: white
-
-  &__title
-    @extend .base__title
-
-  &__subtitle
-    @extend .base__title
-    font-size: 1.2em
+/* ==========================================================================
+   Footer Section
+   ========================================================================== */
 
 .footer
-  color: white
-  background: rgba(27, 27, 27, 0.5)
-  //background-image: radial-gradient(black 33%, transparent 33%)
-  background-size: 1px 1px
-
-  &__title
-    @extend .base__title
-
-  &__content
-    @extend .base__title
-    font-size: 1.7em
-    font-weight: 200
+  background: rgba(70, 70, 120, 0.4)
+  margin-top: 42vh
+  min-height: 58vh
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-end
+  align-items: center
 
   &__method
-    @extend .base__content
+    @extend .content
     text-decoration: none
     line-height: 3em
     color: white
@@ -378,11 +358,10 @@ svg
     min-width: 2em
     line-height: 3em
     text-align: center
-    margin: 0 .5em
+    margin: 0 .1em
     background: rgba(255,255,255,0)
 
 .fa
-
 
   &:hover
     transform: scale(1.2,1.2)
@@ -411,7 +390,7 @@ svg
       color: rgb(43, 43, 43)
 
 .button
-  @extend .base__title
+  @extend .content__title
   display: block
   background: rgba(112,194,247,1)
   background: linear-gradient(to right, rgba(112,194,247,1) 0%, rgba(123,173,203,1) 100%)
@@ -428,25 +407,22 @@ svg
     transform: scale(1.0,1.1)
 
 .endcap
+  @extend .section
+  min-height: 0
   padding-top: 2vw
   padding-bottom: 4vw
   margin: 0
   background: rgba(112,194,247,1)
   background: linear-gradient(to right, rgba(112,194,247,1) 0%, rgba(123,173,203,1) 100%)
 
-  &__content
-    @extend .base__title
-    font-size: 1.3em
-    color: white
-
 .four-oh-four
   background: white
 
   &__title
-    @extend .base__title
+    @extend .content__title
 
   &__content
-    @extend .base__content
+    @extend .content
 
 /* ==========================================================================
   Animations
@@ -473,21 +449,6 @@ svg
 
 .t2
   transition: all 300ms cubic-bezier(0.395, 0.890, 0.680, 1.650)
-
-
-
-/* ==========================================================================
-  Backgrounds
-  =========================================================================== */
-
-.bg2
-  background-image: url("../img/laptop.jpg") !important
-
-  @media screen and (max-width: 680px)
-    background-image: none !important
-
-
-
 
 /* ==========================================================================
    Helper classes
