@@ -158,7 +158,7 @@ const preloadImages = (array) => {
   });
 };
 
-preloadImages(["../img/moi.jpg", "../img/candles.jpg", "../img/fairweather.jpg", "../img/desk.jpg"]);
+preloadImages(["https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/moi.jpg", "https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/candles.jpg", "https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/fairweather.jpg", "https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/desk.jpg"]);
 
 window.addEventListener('load', initScrollResponders);
 window.addEventListener('scroll', _.throttle(checkScroll, scrollSpeed));
