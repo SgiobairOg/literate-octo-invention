@@ -132,6 +132,8 @@ body {
 .page__backdrop {
   width: 100vw;
   height: 100vh;
+  max-height: 75vw;
+  min-height: 1000px;
   position: fixed;
   z-index: -99; }
   .page__backdrop--bg1 {
