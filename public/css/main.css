@@ -137,7 +137,7 @@ body {
   position: fixed;
   z-index: -99; }
   .page__backdrop--bg1 {
-    background: url("../img/moi.jpg") no-repeat fixed center;
+    background: url("../img/moi.jpg") no-repeat center center;
     background-size: cover; }
   .page__backdrop--bg2 {
     background: url("../img/fairweather.jpg") no-repeat fixed center;
