@@ -36,7 +36,6 @@ const checkProgress = ( scrollY ) => {
 };
 
 const checkBG = ( scrollY ) => {
-  console.log(scrollY);
   switch (true) {
     case scrollY <= bg2Target.positionData.trigger:
       backdrop.add('page__backdrop--bg1');
