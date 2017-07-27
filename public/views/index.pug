@@ -205,7 +205,7 @@ html.no-js(lang="en")
                 p.content.content--heavy.content--white Inspired by <a href="https://www.dagmarmuth.com">Dagmar Muth</a> and my daughter's never-ending unicorn-induced joy.
                 
         script(src="js/vendor/lodash.custom.js")
-        script(src="js/main.build.js")
+        script(src="js/main.build.min.js")
 
 
 
@@ -224,3 +224,16 @@ html.no-js(lang="en")
 
           ga('create', 'UA-99023238-1', 'wilsons.io');
           ga('send', 'pageview');
+
+          //Handle Zero Time on Page Issue with Google
+          window.onbeforeunload = function (e) {
+            e = e || window.event;
+
+            //IE and Firefox
+            if (e) {
+              _gaq.push(['_trackPageview', '/bounce']);
+            }
+
+            // For safari & chrome
+            return _gaq.push(['_trackPageview', '/bounce']);
+          }
