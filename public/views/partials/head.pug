@@ -6,6 +6,9 @@ head
 
     title= "Versed Dev Unicorn - Jason Wilson"
 
+    //style
+    //    include ../../css/critical.css
+
     meta(
     name="description"
     content="Design, development, UX, project management, and more. I'm Jason Wilson, at your service."
@@ -29,18 +32,24 @@ head
 
     script(
         src="https://use.typekit.net/vzw6sce.js"
+        async
     )
     script.
         try{
             Typekit.load({ async: true });
         }catch(e){};
 
+    style
+        include ../../css/critical.css
+    
     link(
     rel="stylesheet"
     href="css/main.css"
+    async
     )
 
     link(
     rel="stylesheet"
     href="css/font-awesome.min.css"
+    async
     )

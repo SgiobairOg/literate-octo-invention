@@ -1,0 +1,231 @@
+
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false)
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1)
+  $dimension: if(unit($responsive) == 'vh', 'height', 'width')
+  $min-breakpoint: $min / $responsive-unitless * 100
+
+  @media (max-#{$dimension}: #{$min-breakpoint})
+    font-size: $min
+
+
+  @if $max
+    $max-breakpoint: $max / $responsive-unitless * 100
+
+    @media (min-#{$dimension}: #{$max-breakpoint})
+      font-size: $max
+
+  @if $fallback
+    font-size: $fallback
+
+  font-size: $responsive
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+html, body  //Reset
+  margin: 0
+  padding: 0
+
+::-moz-selection
+  background: #b3d4fc
+  text-shadow: none
+
+
+::selection
+  background: #b3d4fc
+  text-shadow: none
+
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+
+img,
+svg
+  vertical-align: middle
+
+/* ========================================================================
+  Typography
+  ======================================================================== */
+
+body
+  @include responsive-font(3vw, 18px, 24px, 24px)
+
+.content
+  font-size: 1em
+  font-family: "museo-sans", sans-serif
+  line-height: 1.4em
+  font-weight: 300
+  color: #0f0f0f
+
+  &--white
+    color: #f0f0f0
+
+  &--small
+    font-size: .5em
+    font-weight: 100
+
+  &--heavy
+    font-weight: 700
+
+  &--nomargin
+    margin-top: 0
+    margin-bottom: 0
+
+  &__link
+    &:link
+      color: rgba(112,194,247,.8)
+      text-decoration: none
+      border-bottom: 1px solid rgba(112,194,247,.4)
+
+    &:visited
+      color: rgba(112,194,247,1)
+      border-bottom: 1px dashed rgba(112,194,247,.4)
+
+    &:hover
+      color: rgba(112,194,247,.8)
+      text-decoration: underline
+
+    &:active
+      color: rgba(0,0,0,.8)
+      text-decoration: underline
+
+  &__title
+    @extend .content
+    display: block
+    font-weight: 700
+    font-size: 2.6em
+    line-height: 1.2em
+
+    &--lead
+      margin-top: 1.5em
+
+    &:last-of-type
+      margin-bottom: 1em
+
+  &__list
+    list-style-type: none
+    margin: 0
+    padding: 0
+    width: 100%
+
+  &__list-item
+    @extend .content
+    margin-bottom: .5em
+
+
+.inline__fa
+  //min-width: 44px
+  margin: 0 5px
+
+/* ========================================================================
+   Masthead
+   ======================================================================== */
+.masthead
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  z-index: 99999
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade
+  @extend .content
+  background: #ddd
+  color: #000
+  padding: 0.2em 0
+
+/* ==========================================================================
+   notification message
+   ========================================================================== */
+.notifications
+  @extend .content__title
+  margin: 0
+  font-size: 1em
+  background: rgba(54,94,120,1)
+  color: white
+  padding: 0.6em 10vw
+
+/* ==========================================================================
+   Progress Bar
+   ========================================================================== */
+
+.progress
+  margin: 0
+  width: 100vw
+  height: 5px
+  background: transparent
+
+  &__bar
+    //background: rgba(224,45,0,1)
+    //background: linear-gradient(to right, rgba(224,45,0,1) 0%, rgba(235,10,255,1) 100%)
+    background: rgba(112,194,247,1)
+    background: linear-gradient(to right, rgba(112,194,247,1) 0%, rgba(123,173,203,1) 100%)
+    width: 0%
+    height: 100%
+
+/* ==========================================================================
+   Page Wrapper
+   ========================================================================== */
+
+.wrapper
+  width: 100vw
+  min-height: 100vh
+
+.page__backdrop
+  width: 100vw
+  height: 100vh
+  position: fixed
+  z-index: -99
+
+  &--bg1
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/moi.jpg") no-repeat center center
+    background-size: cover
+
+  &--bg2
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/fairweather.jpg") no-repeat center center
+    background-size: cover
+
+  &--bg3
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/candles.jpg") no-repeat center center
+    background-size: cover
+
+  &--bg4
+    background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/desk.jpg") no-repeat center center
+    background-size: cover
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+
+.header
+  display: flex
+  flex-flow: column nowrap
+  min-height: 90vh
+
+  &__tagline
+    margin: 1em 9.4vw
+
+  &__fill
+    background: white
+    flex: 1 0 auto
+
+    &--cap
+      min-height: 1.5em
+
+.knockoutTitle
+  flex: 0 0 auto
+
+/* ==========================================================================
+   Basic Section Styles
+   ========================================================================== */
+
+.section, .tween
+  width: 100%
+  box-sizing: border-box
+  padding: 3em 9.4vw
+  min-height: 90vh
