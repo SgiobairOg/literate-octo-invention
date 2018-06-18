@@ -10,7 +10,9 @@
     "start": "node server.js",
     "webp": "node webp-conversion.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minify-js": "uglifyjs public/dist/js/main.js -o public/dist/js/main.min.js"
+    "minify-js": "uglifyjs public/dist/js/main.js -o public/dist/js/main.min.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,8 @@
     "node-sass": "^4.5.3",
     "node-sass-middleware": "^0.11.0",
     "path": "^0.12.7",
-    "pug": "^2.0.0-rc.1"
-  }
+    "pug": "^2.0.0-rc.1",
+    "snyk": "^1.83.0"
+  },
+  "snyk": true
 }
