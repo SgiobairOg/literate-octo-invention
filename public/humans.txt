@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Jason P. Wilson -- Designer, Developer -- @WilsonUponSea
+    Aoibhe P.R. Wilson -- Designer, Developer -- @WilsonUponSea
 
 # THANKS
 
@@ -11,6 +11,8 @@
     the encouragement of my fellow developers in the 757Dev community.
 
     Big thanks to Nils Solanki who helped me identify a nagging Firefox performance issue.
+
+    Neverending love and respect to my work colleagues at Valtech who have accepted and supported me.
 
 # TECHNOLOGY COLOPHON
 

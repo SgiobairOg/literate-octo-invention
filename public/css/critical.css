@@ -162,7 +162,7 @@ body {
 
 .progress__bar {
   background: #70c2f7;
-  background: linear-gradient(to right, #70c2f7 0%, #7badcb 100%);
+  background: linear-gradient(to right, #70c2f7 0%, #cb7ba6 100%);
   width: 0%;
   height: 100%;
 }
@@ -173,33 +173,6 @@ body {
 .wrapper {
   width: 100vw;
   min-height: 100vh;
-}
-
-.page__backdrop {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -99;
-}
-
-.page__backdrop--bg1 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/moi.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg2 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/fairweather.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg3 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/candles.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg4 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/desk.jpg") no-repeat center center;
-  background-size: cover;
 }
 
 /* ==========================================================================
@@ -226,6 +199,34 @@ body {
 
 .knockoutTitle {
   flex: 0 0 auto;
+}
+
+.aoibhe {
+  height: 45vh;
+}
+
+.st0{display:none;}
+.st1{fill:none;stroke:#FF00FF;stroke-miterlimit:10;}
+.st2{fill:none;stroke:#21212D;stroke-miterlimit:10;}
+
+.aoibhe__line {
+  fill: none;
+  stroke: #21212d;
+  stroke-miterlimit:10;
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 6s ease forwards;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* =========================================================================
