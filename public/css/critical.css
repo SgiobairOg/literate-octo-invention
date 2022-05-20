@@ -181,7 +181,6 @@ body {
 .header {
   display: flex;
   flex-flow: column nowrap;
-  min-height: 90vh;
 }
 
 .header__tagline {
@@ -203,6 +202,7 @@ body {
 
 .aoibhe {
   height: 45vh;
+  background: rgba(255,255,255,1);
 }
 
 .st0{display:none;}
@@ -235,7 +235,6 @@ body {
 .section, .tween {
   width: 100%;
   box-sizing: border-box;
-  padding: 3em 9.4vw;
-  min-height: 90vh;
+  padding: 1.5em 9.4vw;
 }
 /*# sourceMappingURL=critical.css.map */
