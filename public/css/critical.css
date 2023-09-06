@@ -51,16 +51,12 @@ body {
 }
 
 .content--white {
-  color: #f0f0f0;
+  color: #0f0f0f;
 }
 
 .content--small {
   font-size: .5em;
   font-weight: 100;
-}
-
-.content--heavy {
-  font-weight: 700;
 }
 
 .content--nomargin {
@@ -91,7 +87,6 @@ body {
 
 .content__title, .notifications {
   display: block;
-  font-weight: 700;
   font-size: 2.6em;
   line-height: 1.2em;
 }
@@ -100,9 +95,6 @@ body {
   margin-top: 1.5em;
 }
 
-.content__title:last-of-type, .notifications:last-of-type {
-  margin-bottom: 1em;
-}
 
 .content__list {
   list-style-type: none;

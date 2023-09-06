@@ -207,8 +207,6 @@ body {
    @mixin ========================================================================= */
 .intro {
   color: black;
-  margin-top: 42vh;
-  min-height: 58vh;
   background: rgba(70, 70, 120, 0.4);
 }
 
