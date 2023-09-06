@@ -10,7 +10,9 @@
   "scripts": {
     "start": "node server.js",
     "webp": "node webp-conversion.js",
-    "minify-js": "uglifyjs public/dist/js/main.js -o public/dist/js/main.min.js"
+    "minify-js": "uglifyjs public/dist/js/main.js -o public/dist/js/main.min.js",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -43,6 +45,8 @@
     "moment": "^2.29.4",
     "node-sass": "^9.0.0",
     "node-sass-middleware": "^1.0.1",
-    "pug": "^3.0.2"
-  }
+    "pug": "^3.0.2",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
