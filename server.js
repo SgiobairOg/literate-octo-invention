@@ -1,16 +1,22 @@
 /**
  *
- * Created by Jason Wilson <jason@wilsons.io>
+ * Created by Aoibhe Wilson <aoibhe@wilsons.io>
  * 5/21/17.
  *
  * No license is granted for this project.
  */
-const express = require('express');
-const compression = require('compression');
+import express from 'express';
+import compression from 'compression';
+import { join } from 'path';
+import sass from 'node-sass';
+import nodeSassMiddleware from 'node-sass-middleware';
+import moment from 'moment';
+
+import * as url from 'url';
+    const __filename = url.fileURLToPath(import.meta.url);
+    const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 const app = express();
-const path = require('path');
-const sass = require('node-sass');
-const sassMiddleware = require('node-sass-middleware');
 const port = process.env.PORT || '3010';
 
 const indexData = {
@@ -20,7 +26,7 @@ const indexData = {
   }
 };
 
-app.locals.moment = require('moment');
+app.locals.moment = moment;
 
 function requireHTTPS(req, res, next) {
   if (!req.secure) {
@@ -34,15 +40,15 @@ app.all(requireHTTPS);
 app.set('views', __dirname + '/public/views');
 app.set('view engine', 'pug');
 app.use(compression());
-app.use(sassMiddleware({
-  src: path.join(__dirname, 'public/css/sass'),
-  dest: path.join(__dirname, 'public/css'),
+app.use(nodeSassMiddleware({
+  src: join(__dirname, 'public/css/sass'),
+  dest: join(__dirname, 'public/css'),
   debug: true,
   indentedSyntax: true,
   prefix: '/css'
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
