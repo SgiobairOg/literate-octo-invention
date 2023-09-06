@@ -51,16 +51,12 @@ body {
 }
 
 .content--white {
-  color: #f0f0f0;
+  color: #0f0f0f;
 }
 
 .content--small {
   font-size: .5em;
   font-weight: 100;
-}
-
-.content--heavy {
-  font-weight: 700;
 }
 
 .content--nomargin {
@@ -91,7 +87,6 @@ body {
 
 .content__title, .notifications, .button, .four-oh-four__title {
   display: block;
-  font-weight: 700;
   font-size: 2.6em;
   line-height: 1.2em;
 }
@@ -100,9 +95,7 @@ body {
   margin-top: 1.5em;
 }
 
-.content__title:last-of-type, .notifications:last-of-type, .button:last-of-type, .four-oh-four__title:last-of-type {
-  margin-bottom: 1em;
-}
+
 
 .content__list {
   list-style-type: none;
@@ -175,40 +168,12 @@ body {
   min-height: 100vh;
 }
 
-.page__backdrop {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: -99;
-}
-
-.page__backdrop--bg1 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/moi.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg2 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/fairweather.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg3 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/candles.jpg") no-repeat center center;
-  background-size: cover;
-}
-
-.page__backdrop--bg4 {
-  background: url("https://res.cloudinary.com/sgiobairog/image/upload/q_auto:good/v1501190314/wilsons/desk.jpg") no-repeat center center;
-  background-size: cover;
-}
-
 /* ==========================================================================
    Header Section
    @mixin ========================================================================= */
 .header {
   display: flex;
   flex-flow: column nowrap;
-  min-height: 90vh;
 }
 
 .header__tagline {
@@ -235,134 +200,24 @@ body {
   width: 100%;
   box-sizing: border-box;
   padding: 3em 9.4vw;
-  min-height: 90vh;
 }
 
 /* ==========================================================================
    Intro Section
    @mixin ========================================================================= */
 .intro {
-  color: white;
+  color: black;
   margin-top: 42vh;
   min-height: 58vh;
   background: rgba(70, 70, 120, 0.4);
 }
 
-/* ==========================================================================
-   Offerings Section
-   @mixin ========================================================================= */
-.offerings {
-  background: white;
-}
-
-.offerings__area {
-  padding-top: 2em;
-}
-
-/* ==========================================================================
-   Spacer Section
-   @mixin ========================================================================= */
-.spacer {
-  background: rgba(70, 70, 120, 0.4);
-  height: 90vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-/* ==========================================================================
-   Experience Section
-   @mixin ========================================================================= */
-.experience {
-  background: white;
-}
-
-.experience__area {
-  margin-bottom: 1.2em;
-}
-
-.experience__area:last-of-type {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   Projects Section
-   @mixin ========================================================================= */
-.projects {
-  background: white;
-}
-
-.project__area {
-  margin-bottom: 2.5em;
-}
-
-.project__area:last-of-type {
-  margin-bottom: 0;
-}
-
-/* ==========================================================================
-   Grid Sections
-   @mixin ========================================================================= */
-.columns {
-  width: 100%;
-}
-
-@supports (grid-row-gap: 4.7vw) {
-  .columns {
-    display: grid;
-  }
-}
-
-@supports not (grid-row-gap: 4.7vw) {
-  .columns {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-}
-
-@supports (grid-row-gap: 4.7vw) {
-  .columns--2 {
-    grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 4.7vw;
-    grid-row-gap: 4.7vw;
-  }
-  @media screen and (min-width: 760px) {
-    .columns--2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-@supports not (grid-row-gap: 4.7vw) {
-  .columns--2__cell {
-    margin: 4.7vw;
-    flex: 0 0 100%;
-  }
-  @media screen and (min-width: 760px) {
-    .columns--2__cell {
-      flex: 0 0 50%;
-    }
-    .columns--2__cell:nth-child(-n+2) {
-      margin-top: 0;
-    }
-    .columns--2__cell:nth-child(1n) {
-      margin-left: 0;
-    }
-    .columns--2__cell:nth-child(2n) {
-      margin-right: 0;
-    }
-  }
-}
 
 /* ==========================================================================
    Footer Section
    @mixin ========================================================================= */
 .footer {
   background: rgba(70, 70, 120, 0.4);
-  margin-top: 42vh;
-  min-height: 58vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
