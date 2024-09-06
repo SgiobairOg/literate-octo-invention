@@ -39,6 +39,6 @@
     "moment": "^2.29.4",
     "node-sass": "^9.0.0",
     "node-sass-middleware": "^1.0.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.3"
   }
 }
